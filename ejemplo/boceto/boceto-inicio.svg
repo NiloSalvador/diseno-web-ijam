@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000" font-family="Segoe UI, Arial, sans-serif">
+  <title>Boceto de la página de inicio de Café Orquídea</title>
+  <rect width="800" height="1000" fill="#fdfbf7"/>
+  <g fill="none" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round">
+    <!-- Cabecera -->
+    <rect x="20" y="20" width="760" height="70" rx="6"/>
+    <circle cx="65" cy="55" r="22"/>
+    <line x1="460" y1="55" x2="520" y2="55"/>
+    <line x1="545" y1="55" x2="605" y2="55"/>
+    <line x1="630" y1="55" x2="690" y2="55"/>
+    <rect x="705" y="40" width="55" height="30" rx="4"/>
+    <!-- Portada con foto -->
+    <rect x="20" y="110" width="760" height="300" rx="6"/>
+    <line x1="20" y1="110" x2="780" y2="410" stroke="#bdbdbd"/>
+    <line x1="780" y1="110" x2="20" y2="410" stroke="#bdbdbd"/>
+    <rect x="250" y="300" width="300" height="56" rx="28" stroke-width="3"/>
+    <!-- Tres tarjetas -->
+    <rect x="20" y="440" width="240" height="250" rx="6"/>
+    <rect x="280" y="440" width="240" height="250" rx="6"/>
+    <rect x="540" y="440" width="240" height="250" rx="6"/>
+    <rect x="35" y="455" width="210" height="140" stroke="#bdbdbd"/>
+    <rect x="295" y="455" width="210" height="140" stroke="#bdbdbd"/>
+    <rect x="555" y="455" width="210" height="140" stroke="#bdbdbd"/>
+    <!-- Horario y mapa -->
+    <rect x="20" y="720" width="370" height="170" rx="6"/>
+    <rect x="410" y="720" width="370" height="170" rx="6"/>
+    <path d="M595 770 c-18 0 -30 14 -30 30 c0 24 30 50 30 50 s30 -26 30 -50 c0 -16 -12 -30 -30 -30 z"/>
+    <!-- Pie -->
+    <rect x="20" y="910" width="760" height="70" rx="6"/>
+  </g>
+  <g fill="#3a3a3a" font-size="18">
+    <text x="100" y="61">Logo</text>
+    <text x="460" y="45" font-size="14">Inicio</text>
+    <text x="545" y="45" font-size="14">Carta</text>
+    <text x="630" y="45" font-size="14">Nosotros</text>
+    <text x="712" y="60" font-size="13">Contacto</text>
+    <text x="400" y="200" font-size="34" text-anchor="middle" font-weight="700">Café Orquídea</text>
+    <text x="400" y="240" font-size="18" text-anchor="middle">Café de la provincia en el centro de Rioja</text>
+    <text x="400" y="334" font-size="18" text-anchor="middle" font-weight="700">Pide por WhatsApp</text>
+    <text x="140" y="530" text-anchor="middle" fill="#9a9a9a">foto</text>
+    <text x="400" y="530" text-anchor="middle" fill="#9a9a9a">foto</text>
+    <text x="660" y="530" text-anchor="middle" fill="#9a9a9a">foto</text>
+    <text x="35" y="625">Café pasado</text>
+    <text x="295" y="625">Desayuno andino</text>
+    <text x="555" y="625">Torta de chocolate</text>
+    <text x="35" y="655" font-size="15">S/ 6.00</text>
+    <text x="295" y="655" font-size="15">S/ 14.00</text>
+    <text x="555" y="655" font-size="15">S/ 9.00</text>
+    <text x="40" y="755" font-weight="700">Horario</text>
+    <text x="40" y="790" font-size="15">Lunes a viernes, 7:00 a 21:00</text>
+    <text x="40" y="815" font-size="15">Sábado, 8:00 a 22:00</text>
+    <text x="630" y="870" font-size="15">Mapa</text>
+    <text x="40" y="952" font-size="15">Dirección, teléfono y redes</text>
+    <text x="760" y="952" font-size="15" text-anchor="end">© 2026 Café Orquídea</text>
+  </g>
+</svg>
