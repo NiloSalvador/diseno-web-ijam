@@ -1,5 +1,5 @@
 ---
-// Página de inicio del ejemplo del curso (Café Orquídea, negocio ficticio).
+// Inicio de Café Orquídea, el ejemplo del curso (negocio ficticio).
 ---
 
 <html lang="es">
@@ -12,7 +12,54 @@
 		<title>Café Orquídea | Cafetería en Rioja</title>
 	</head>
 	<body>
-		<h1>Café Orquídea</h1>
-		<p>Café de la provincia, desayunos y postres caseros en el centro de Rioja.</p>
+		<header>
+			<a href="/">Café Orquídea</a>
+			<nav aria-label="Principal">
+				<ul>
+					<li><a href="/" aria-current="page">Inicio</a></li>
+					<li><a href="/carta">Carta</a></li>
+					<li><a href="/nosotros">Nosotros</a></li>
+					<li><a href="/contacto">Contacto</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main>
+			<section>
+				<h1>Café Orquídea</h1>
+				<p>Café de la provincia, desayunos y postres caseros en el centro de Rioja.</p>
+				<p><a href="https://wa.me/51942123456">Pide por WhatsApp</a></p>
+			</section>
+
+			<section>
+				<h2>Lo más pedido</h2>
+				<article>
+					<h3>Café pasado</h3>
+					<p>Café de altura del Alto Mayo, pasado en filtro de tela al momento.</p>
+				</article>
+				<article>
+					<h3>Tacacho con cecina</h3>
+					<p>El desayuno de la selva, con plátano verde asado y cecina ahumada.</p>
+				</article>
+				<article>
+					<h3>Torta de chocolate</h3>
+					<p>Hecha en casa cada mañana con cacao de San Martín.</p>
+				</article>
+				<p><a href="/carta">Ver la carta completa</a></p>
+			</section>
+
+			<section>
+				<h2>Horario</h2>
+				<p>De lunes a viernes, de 7:00 a. m. a 9:00 p. m. Los sábados, de 8:00 a. m. a 2:00 p. m.</p>
+			</section>
+		</main>
+
+		<footer>
+			<address>
+				Jr. Grau 345, Rioja, San Martín<br />
+				<a href="tel:+51942123456">Llamar al 942 123 456</a>
+			</address>
+			<p>Café Orquídea es un negocio ficticio, creado para el curso Diseño Web del IESTP John A. Mackay.</p>
+		</footer>
 	</body>
 </html>
