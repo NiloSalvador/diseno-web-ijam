@@ -9,8 +9,8 @@ Esta semana tu sitio pasa de una página a cuatro, con el contenido real del neg
 - Fotos del negocio que Astro optimiza solo, cada una con un texto que dice qué muestra.
 - Una tabla de precios u horarios y el mapa del negocio.
 
-> **Plazo.** Del jueves 8 al miércoles 14 de octubre a las 23:59. El jueves 8 es feriado, así que esta semana no hay
-> consultorio en vivo; las dudas van por el chat del curso en el aula.
+> **Plazo.** Del jueves 8 al miércoles 14 de octubre a las 23:59. En el aula tienes dos vídeos: la lección 2.1
+> acompaña los pasos 1 al 4 y la 2.2, los pasos 5 al 9. Las dudas van por Google Chat.
 
 ## Antes de empezar
 

@@ -29,7 +29,7 @@ JavaScript, usando Astro.
 3. **Práctica en tu propio sitio.** El revisor (`npm run revisar -- N`, con el número de la semana) te dice qué
    falta antes de entregar.
 4. **Entrega** del enlace de tu repositorio en el aula y un **cuestionario** de cinco preguntas.
-5. **Dudas** por el chat del curso en el aula.
+5. **Dudas** por Google Chat, con el mensaje exacto de la terminal (o una captura) y el paso de la guía.
 
 ## Reglas del proyecto
 
