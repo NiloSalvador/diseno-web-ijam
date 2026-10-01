@@ -1,5 +1,11 @@
 ---
 // Inicio de Café Orquídea, el ejemplo del curso (negocio ficticio).
+// Las fotos viven en src/assets y se importan para que Astro las optimice.
+import { Image } from 'astro:assets';
+import fotoLocal from '../assets/local.jpg';
+import fotoCafe from '../assets/cafe-pasado.jpg';
+import fotoDesayuno from '../assets/desayuno.jpg';
+import fotoPostre from '../assets/postre.jpg';
 ---
 
 <html lang="es">
@@ -28,6 +34,11 @@
 			<section>
 				<h1>Café Orquídea</h1>
 				<p>Café de la provincia, desayunos y postres caseros en el centro de Rioja.</p>
+				<Image
+					src={fotoLocal}
+					alt="Salón de Café Orquídea con mesas de madera, plantas y orquídeas junto a la ventana"
+					width={640}
+				/>
 				<p><a href="https://wa.me/51942123456">Pide por WhatsApp</a></p>
 			</section>
 
@@ -35,14 +46,17 @@
 				<h2>Lo más pedido</h2>
 				<article>
 					<h3>Café pasado</h3>
+					<Image src={fotoCafe} alt="Taza de café pasado con granos tostados sobre una mesa de madera" width={320} />
 					<p>Café de altura del Alto Mayo, pasado en filtro de tela al momento.</p>
 				</article>
 				<article>
 					<h3>Tacacho con cecina</h3>
+					<Image src={fotoDesayuno} alt="Plato de tacacho con cecina, salsa criolla y una taza de café" width={320} />
 					<p>El desayuno de la selva, con plátano verde asado y cecina ahumada.</p>
 				</article>
 				<article>
 					<h3>Torta de chocolate</h3>
+					<Image src={fotoPostre} alt="Tajada de torta de chocolate con cobertura de chocolate en un plato blanco" width={320} />
 					<p>Hecha en casa cada mañana con cacao de San Martín.</p>
 				</article>
 				<p><a href="/carta">Ver la carta completa</a></p>

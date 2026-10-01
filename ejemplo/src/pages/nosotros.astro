@@ -1,5 +1,7 @@
 ---
 // Nosotros: la historia del café, de dónde viene el grano y el horario.
+import { Image } from 'astro:assets';
+import fotoGranos from '../assets/granos.jpg';
 ---
 
 <html lang="es">
@@ -41,6 +43,11 @@
 
 			<section>
 				<h2>De dónde viene nuestro café</h2>
+				<Image
+					src={fotoGranos}
+					alt="Rama de cafeto con granos maduros de color rojo en una finca de la selva alta"
+					width={640}
+				/>
 				<p>
 					Compramos el grano a familias productoras de Rioja y Nueva Cajamarca. Lo tostamos cada semana en pequeñas
 					cantidades, para que llegue fresco a la taza.
