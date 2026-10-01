@@ -1,51 +1,36 @@
-# Brief del sitio web — Café Orquídea
+# Brief del sitio web
 
-Ejemplo resuelto del curso. Café Orquídea es un negocio **ficticio**: los datos son inventados para enseñar cómo se
-llena un brief. Tu brief habla de un negocio real y usa solo sus datos públicos.
+Completa cada apartado con tus palabras y borra la línea «Escribe aquí». Usa solo datos públicos del negocio:
+nada de DNI, teléfonos personales ni direcciones de casas, porque este repositorio es público.
 
 ## El negocio
 
-Café Orquídea es una cafetería de Rioja (San Martín) que sirve café de la provincia, desayunos y postres caseros.
-Atiende desde 2019 en el centro de la ciudad, de lunes a sábado.
+_Escribe aquí cómo se llama, a qué se dedica, dónde está y desde cuándo atiende._
 
 ## El permiso
 
-Como es un negocio de ejemplo creado para el curso, no necesita permiso. En tu proyecto escribe aquí que el dueño
-aceptó que hagas su sitio y que uses sus fotos y su logo.
+_Escribe aquí si el dueño ya te dio permiso para hacer su sitio y para usar sus fotos y su logo (sin su nombre)._
 
 ## Objetivo del sitio
 
-Que más personas pidan por WhatsApp para recoger o reservar mesa, y que quien busque «cafetería en Rioja» en Google
-encuentre la carta, el horario y cómo llegar.
+_Escribe aquí qué tiene que lograr el sitio: más pedidos por WhatsApp, más reservas, que lo encuentren en Google…_
 
 ## Público
 
-Trabajadores y estudiantes de 18 a 45 años que buscan un desayuno rápido o un lugar para reunirse, y turistas de paso
-por el Alto Mayo. Casi todos entran desde el celular y muchas veces con datos móviles, así que el sitio tiene que
-cargar rápido.
+_Escribe aquí quiénes van a visitar el sitio: edad, qué buscan y si entran más desde el celular o la computadora._
 
 ## Páginas
 
-- **Inicio.** Quiénes somos en una frase, una foto del local, los tres productos más pedidos y el botón de WhatsApp.
-- **Carta.** Bebidas, desayunos y postres con sus precios.
-- **Nosotros.** La historia del café, de dónde viene el grano y el horario.
-- **Contacto.** Mapa, dirección, horario y un formulario que arma el mensaje de WhatsApp.
+_Escribe aquí las 4 páginas que tendrá el sitio y qué va en cada una (por ejemplo Inicio, Productos, Nosotros y Contacto)._
 
 ## Contenido que ya tienes
 
-El logo en PNG, doce fotos de productos y del local, la carta con precios en un Excel y el horario. Falta una foto
-de la fachada y escribir la historia del café.
+_Escribe aquí qué fotos, logo, textos, precios u horarios te dio el negocio y qué falta conseguir._
 
 ## Estilo visual
 
-- Colores de la marca. Verde selva `#1F4D3A` para la cabecera y los botones, crema `#F6EFE4` de fondo, café
-  `#6B3E26` para los títulos y orquídea `#B5487E` como acento en lo que se puede pulsar.
-- Tipografía. Fraunces para los títulos e Inter para el texto, las dos gratuitas.
-- Referencias. La carta en tarjetas con foto que usan las cadenas de café, porque se lee rápido en el celular, y
-  las fotos grandes con poco texto de las cafeterías de especialidad, porque dan ganas de ir.
+_Escribe aquí los colores de la marca con su código (por ejemplo #1E3A8A), la tipografía y dos sitios de referencia que te gusten y por qué._
 
 ## Boceto
 
-Arriba va la cabecera con el logo y el menú. Debajo, una foto grande del local con el nombre y el botón «Pide por
-WhatsApp». Al medio, tres tarjetas con los productos más pedidos. Luego el horario junto al mapa y, abajo, el pie con
-la dirección y las redes. El dibujo está en `boceto/boceto-inicio.svg`.
+_Escribe aquí cómo se reparte la página de inicio (qué va arriba, en el medio y abajo) y el nombre del archivo de tu boceto en la carpeta `boceto`._
