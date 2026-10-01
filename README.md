@@ -14,7 +14,7 @@ JavaScript, usando Astro.
 | Semana | Desde | Tema | Guía |
 | :-: | :-- | :-- | :-- |
 | 1 | 1 de octubre | Tu primer sitio con Astro | [Semana 1](guias/semana-1.md) |
-| 2 | 8 de octubre | HTML semántico y varias páginas | Próximamente |
+| 2 | 8 de octubre | HTML semántico y varias páginas | [Semana 2](guias/semana-2.md) |
 | 3 | 15 de octubre | El CSS que hay que entender y Tailwind | Próximamente |
 | 4 | 22 de octubre | Maquetación para celular y computadora (evaluación intermedia) | Próximamente |
 | 5 | 29 de octubre | Componentes, layouts y datos | Próximamente |

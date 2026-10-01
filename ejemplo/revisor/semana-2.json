@@ -35,13 +35,13 @@
       "puntos": 10,
       "nombre": "Cada página tiene un solo encabezado principal",
       "etiqueta": "h1",
-      "distintoDe": ["Nombre de tu negocio", "Astro"]
+      "distintoDe": ["Nombre de tu negocio", "Nombre del negocio", "Astro"]
     },
     {
       "tipo": "titulos-unicos",
       "puntos": 10,
       "nombre": "Cada página tiene su propio título de pestaña",
-      "distintoDe": ["Nombre de tu negocio", "Astro"]
+      "distintoDe": ["Nombre de tu negocio", "Nombre del negocio", "Astro"]
     },
     {
       "tipo": "enlaces-internos",
