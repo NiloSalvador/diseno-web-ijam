@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+/* La marca de Café Orquídea, tal como la pide el brief. Cada variable de @theme se vuelve una
+   clase de Tailwind, por ejemplo --color-crema da bg-crema y text-crema, y --font-titulo da font-titulo. */
+@theme {
+	/* Los cuatro colores del brief */
+	--color-selva: #1f4d3a; /* verde selva, para la cabecera y los botones */
+	--color-crema: #f6efe4; /* el fondo */
+	--color-cafe: #6b3e26; /* los títulos */
+	--color-orquidea: #b5487e; /* el acento en lo que se puede pulsar */
+
+	/* Tonos derivados, para el texto, las tarjetas y los fondos oscuros */
+	--color-crema-claro: #fcf9f4;
+	--color-crema-oscuro: #e8dccb;
+	--color-cafe-oscuro: #2b1b12;
+	--color-orquidea-oscuro: #8e3462;
+	--color-orquidea-claro: #edbcd5;
+
+	--font-titulo: "Fraunces", Georgia, serif;
+	--font-texto: "Inter", system-ui, sans-serif;
+
+	--animate-aparecer: aparecer 0.25s ease-out;
+
+	@keyframes aparecer {
+		from {
+			opacity: 0;
+			transform: translateY(-0.5rem);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+}
+
+/* Estilos de base: los títulos usan la fuente de la marca y todo lo que se puede pulsar
+   muestra un borde orquídea cuando se llega a él con el teclado. */
+@layer base {
+	h1,
+	h2,
+	h3 {
+		font-family: var(--font-titulo);
+		font-weight: 600;
+		color: var(--color-cafe);
+		line-height: 1.15;
+		text-wrap: balance;
+	}
+
+	:focus-visible {
+		outline: 3px solid var(--color-orquidea);
+		outline-offset: 3px;
+	}
+}

@@ -1,0 +1,36 @@
+---
+// El horario del café en una tarjeta. Lo usan Inicio, Nosotros y Contacto, y los datos
+// salen de src/data/negocio.js, así que se cambia en un solo lugar.
+// Lo que la página ponga entre <Horario> y </Horario> aparece al final, en el <slot />.
+import { horario } from '../data/negocio.js';
+---
+
+<section class="rounded-3xl bg-crema-claro p-6 shadow-lg shadow-cafe-oscuro/10 ring-1 ring-crema-oscuro sm:p-8">
+	<h2 class="flex items-center gap-3 text-2xl">
+		<svg
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			stroke-width="1.75"
+			stroke-linecap="round"
+			stroke-linejoin="round"
+			aria-hidden="true"
+			class="size-7 text-selva"
+		>
+			<circle cx="12" cy="12" r="9"></circle>
+			<path d="M12 7v5l3 2"></path>
+		</svg>
+		Horario
+	</h2>
+	<dl class="mt-4 divide-y divide-crema-oscuro">
+		{
+			horario.map((fila) => (
+				<div class="flex flex-col gap-1 py-3 sm:flex-row sm:flex-wrap sm:items-baseline sm:justify-between sm:gap-x-4">
+					<dt class="font-semibold">{fila.dias}</dt>
+					<dd class="text-cafe tabular-nums">{fila.horas}</dd>
+				</div>
+			))
+		}
+	</dl>
+	<slot />
+</section>

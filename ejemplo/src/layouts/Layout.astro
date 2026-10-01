@@ -1,0 +1,37 @@
+---
+// El molde de todas las páginas: el <head>, la cabecera, el pie y, en medio, el contenido
+// de cada página, que entra por el <slot />. El título y la descripción llegan por props.
+import '@fontsource/fraunces/600.css';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/600.css';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content={description} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body class="flex min-h-svh flex-col bg-crema font-texto text-cafe-oscuro antialiased">
+		<a
+			href="#contenido"
+			class="sr-only rounded-full bg-orquidea px-5 py-3 font-semibold text-crema-claro focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50"
+		>
+			Saltar al contenido
+		</a>
+		<Header />
+		<main id="contenido" class="flex-1">
+			<slot />
+		</main>
+		<Footer />
+	</body>
+</html>

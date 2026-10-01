@@ -1,0 +1,26 @@
+---
+// Botón que lleva al WhatsApp del café. El texto llega por props; si no llega, dice «Pide por WhatsApp».
+import { negocio } from '../data/negocio.js';
+
+const { texto = 'Pide por WhatsApp' } = Astro.props;
+---
+
+<a
+	href={negocio.whatsapp}
+	class="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-selva px-6 py-3 font-semibold text-crema-claro shadow-lg shadow-cafe-oscuro/25 ring-1 ring-crema/20 transition hover:bg-orquidea motion-safe:hover:-translate-y-0.5 motion-safe:active:translate-y-0"
+>
+	<svg
+		viewBox="0 0 24 24"
+		fill="none"
+		stroke="currentColor"
+		stroke-width="1.75"
+		stroke-linecap="round"
+		stroke-linejoin="round"
+		aria-hidden="true"
+		class="size-5"
+	>
+		<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
+		<path d="M8.5 11.5h.01M12 11.5h.01M15.5 11.5h.01" stroke-width="2.5"></path>
+	</svg>
+	{texto}
+</a>

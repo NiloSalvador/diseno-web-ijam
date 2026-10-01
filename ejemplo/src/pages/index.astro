@@ -1,79 +1,87 @@
 ---
-// Inicio de Café Orquídea, el ejemplo del curso (negocio ficticio).
-// Las fotos viven en src/assets y se importan para que Astro las optimice.
+// Inicio de Café Orquídea, el ejemplo del curso (negocio ficticio). Sigue el boceto del brief:
+// foto grande con el nombre y el botón, los tres productos más pedidos y el horario junto al mapa.
+// «Lo más pedido» sale de src/data/carta.js y cada producto se muestra con el componente TarjetaProducto.
 import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import TarjetaProducto from '../components/TarjetaProducto.astro';
+import BotonWhatsapp from '../components/BotonWhatsapp.astro';
+import Horario from '../components/Horario.astro';
+import { masPedidos } from '../data/carta.js';
+import { negocio } from '../data/negocio.js';
 import fotoLocal from '../assets/local.jpg';
-import fotoCafe from '../assets/cafe-pasado.jpg';
-import fotoDesayuno from '../assets/desayuno.jpg';
-import fotoPostre from '../assets/postre.jpg';
 ---
 
-<html lang="es">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Café Orquídea | Cafetería en Rioja</title>
-	</head>
-	<body>
-		<header>
-			<a href="/">Café Orquídea</a>
-			<nav aria-label="Principal">
-				<ul>
-					<li><a href="/" aria-current="page">Inicio</a></li>
-					<li><a href="/carta">Carta</a></li>
-					<li><a href="/nosotros">Nosotros</a></li>
-					<li><a href="/contacto">Contacto</a></li>
-				</ul>
-			</nav>
-		</header>
+<Layout
+	title="Café Orquídea | Cafetería en Rioja"
+	description="Café de la provincia, desayunos y postres caseros en el centro de Rioja, San Martín. Mira la carta y el horario, y pide por WhatsApp."
+>
+	<section class="relative isolate overflow-hidden bg-cafe-oscuro">
+		<Image
+			src={fotoLocal}
+			alt="Salón de Café Orquídea con mesas de madera, plantas y orquídeas junto a la ventana"
+			widths={[640, 960, 1216]}
+			sizes="100vw"
+			loading="eager"
+			fetchpriority="high"
+			class="absolute inset-0 -z-10 size-full object-cover"
+		/>
+		<div class="absolute inset-0 -z-10 bg-linear-to-b from-cafe-oscuro/60 via-cafe-oscuro/70 to-cafe-oscuro/85"></div>
+		<div
+			class="mx-auto flex min-h-136 max-w-3xl flex-col items-center justify-center px-4 py-20 text-center sm:px-6 md:min-h-160"
+		>
+			<h1 class="text-5xl text-crema sm:text-6xl lg:text-7xl">Café Orquídea</h1>
+			<p class="mt-5 max-w-md text-lg text-crema sm:text-xl">
+				Café de la provincia, desayunos y postres caseros en el centro de Rioja.
+			</p>
+			<div class="mt-9">
+				<BotonWhatsapp />
+			</div>
+		</div>
+	</section>
 
-		<main>
-			<section>
-				<h1>Café Orquídea</h1>
-				<p>Café de la provincia, desayunos y postres caseros en el centro de Rioja.</p>
-				<Image
-					src={fotoLocal}
-					alt="Salón de Café Orquídea con mesas de madera, plantas y orquídeas junto a la ventana"
-					width={640}
-				/>
-				<p><a href="https://wa.me/51942123456">Pide por WhatsApp</a></p>
-			</section>
+	<section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-24">
+		<div class="flex flex-wrap items-end justify-between gap-4">
+			<h2 class="text-3xl md:text-4xl">Lo más pedido</h2>
+			<a
+				href="/carta"
+				class="inline-flex min-h-11 items-center font-semibold text-orquidea-oscuro underline decoration-orquidea/40 underline-offset-4 transition hover:decoration-orquidea"
+			>
+				Ver la carta completa
+			</a>
+		</div>
+		<div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+			{masPedidos.map((producto) => <TarjetaProducto {...producto} />)}
+		</div>
+	</section>
 
-			<section>
-				<h2>Lo más pedido</h2>
-				<article>
-					<h3>Café pasado</h3>
-					<Image src={fotoCafe} alt="Taza de café pasado con granos tostados sobre una mesa de madera" width={320} />
-					<p>Café de altura del Alto Mayo, pasado en filtro de tela al momento.</p>
-				</article>
-				<article>
-					<h3>Tacacho con cecina</h3>
-					<Image src={fotoDesayuno} alt="Plato de tacacho con cecina, salsa criolla y una taza de café" width={320} />
-					<p>El desayuno de la selva, con plátano verde asado y cecina ahumada.</p>
-				</article>
-				<article>
-					<h3>Torta de chocolate</h3>
-					<Image src={fotoPostre} alt="Tajada de torta de chocolate con cobertura de chocolate en un plato blanco" width={320} />
-					<p>Hecha en casa cada mañana con cacao de San Martín.</p>
-				</article>
-				<p><a href="/carta">Ver la carta completa</a></p>
-			</section>
-
-			<section>
-				<h2>Horario</h2>
-				<p>De lunes a viernes, de 7:00 a. m. a 9:00 p. m. Los sábados, de 8:00 a. m. a 2:00 p. m.</p>
-			</section>
-		</main>
-
-		<footer>
-			<address>
-				Jr. Grau 345, Rioja, San Martín<br />
-				<a href="tel:+51942123456">Llamar al 942 123 456</a>
-			</address>
-			<p>Café Orquídea es un negocio ficticio, creado para el curso Diseño Web del IESTP John A. Mackay.</p>
-		</footer>
-	</body>
-</html>
+	<div class="mx-auto grid max-w-6xl gap-6 px-4 pb-16 sm:px-6 md:grid-cols-2 md:pb-24">
+		<Horario>
+			<p class="mt-6 flex items-start gap-3 text-cafe">
+				<svg
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="1.75"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					aria-hidden="true"
+					class="mt-0.5 size-5 shrink-0 text-selva"
+				>
+					<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+					<circle cx="12" cy="10" r="3"></circle>
+				</svg>
+				<span>{negocio.direccion}. {negocio.referencia}.</span>
+			</p>
+		</Horario>
+		<iframe
+			src="https://www.google.com/maps?q=Plaza+de+Armas+de+Rioja,+San+Martin,+Peru&z=17&output=embed"
+			title="Mapa de Café Orquídea, junto a la Plaza de Armas de Rioja"
+			width="600"
+			height="400"
+			loading="lazy"
+			referrerpolicy="no-referrer-when-downgrade"
+			class="h-full min-h-80 w-full rounded-3xl bg-crema-oscuro shadow-lg shadow-cafe-oscuro/10 ring-1 ring-crema-oscuro"
+		></iframe>
+	</div>
+</Layout>

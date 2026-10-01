@@ -1,71 +1,184 @@
 ---
-// Contacto: WhatsApp, teléfono, dirección con mapa y horario.
+// Contacto: un formulario que arma el mensaje de WhatsApp, los datos del café, el horario y el mapa.
 // El mapa es un iframe de Google Maps; su «title» dice qué hay dentro para quien usa lector de pantalla.
+import Layout from '../layouts/Layout.astro';
+import Horario from '../components/Horario.astro';
+import { negocio } from '../data/negocio.js';
 ---
 
-<html lang="es">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Contacto | Café Orquídea</title>
-	</head>
-	<body>
-		<header>
-			<a href="/">Café Orquídea</a>
-			<nav aria-label="Principal">
-				<ul>
-					<li><a href="/">Inicio</a></li>
-					<li><a href="/carta">Carta</a></li>
-					<li><a href="/nosotros">Nosotros</a></li>
-					<li><a href="/contacto" aria-current="page">Contacto</a></li>
-				</ul>
-			</nav>
-		</header>
+<Layout
+	title="Contacto | Café Orquídea"
+	description="Pide para recoger o reserva una mesa en Café Orquídea por WhatsApp. Jr. Grau 345, a media cuadra de la Plaza de Armas de Rioja."
+>
+	<section class="border-b border-crema-oscuro bg-crema-oscuro/40">
+		<div class="mx-auto max-w-6xl px-4 py-14 sm:px-6 md:py-20">
+			<p class="text-sm font-semibold tracking-widest text-selva uppercase">Pedidos y reservas</p>
+			<h1 class="mt-3 text-4xl sm:text-5xl">Contacto</h1>
+			<p class="mt-5 max-w-2xl text-lg text-cafe">
+				Escríbenos para pedir y recoger, o para reservar una mesa para tu grupo. Te respondemos por WhatsApp.
+			</p>
+		</div>
+	</section>
 
-		<main>
-			<h1>Contacto</h1>
+	<div class="mx-auto grid max-w-6xl items-start gap-6 px-4 py-16 sm:px-6 md:py-20 lg:grid-cols-5">
+		<section
+			class="rounded-3xl bg-crema-claro p-6 shadow-lg shadow-cafe-oscuro/10 ring-1 ring-crema-oscuro sm:p-8 lg:col-span-3"
+		>
+			<h2 class="text-3xl">Pide o reserva</h2>
+			<p class="mt-2 text-cafe">Llena tus datos y te llevamos a WhatsApp con el mensaje listo para enviar.</p>
 
-			<section>
-				<h2>Pide o reserva</h2>
-				<p>Escríbenos para pedir y recoger, o para reservar una mesa para tu grupo.</p>
-				<ul>
-					<li><a href="https://wa.me/51942123456">Escríbenos por WhatsApp</a></li>
-					<li><a href="tel:+51942123456">Llámanos al 942 123 456</a></li>
+			<form id="formulario-whatsapp" class="mt-8 flex flex-col gap-6">
+				<div>
+					<label for="nombre" class="block font-semibold">Tu nombre</label>
+					<input
+						id="nombre"
+						name="nombre"
+						type="text"
+						autocomplete="name"
+						required
+						class="mt-2 block min-h-12 w-full rounded-xl border border-crema-oscuro bg-crema px-4 py-3 text-base placeholder:text-cafe/80"
+						placeholder="Por ejemplo, Rosa Pérez"
+					/>
+				</div>
+
+				<div>
+					<label for="motivo" class="block font-semibold">Qué necesitas</label>
+					<select
+						id="motivo"
+						name="motivo"
+						required
+						class="mt-2 block min-h-12 w-full rounded-xl border border-crema-oscuro bg-crema px-4 py-3 text-base"
+					>
+						<option value="Quiero hacer un pedido para recoger.">Un pedido para recoger</option>
+						<option value="Quiero reservar una mesa.">Reservar una mesa</option>
+						<option value="Tengo una consulta.">Otra consulta</option>
+					</select>
+				</div>
+
+				<div>
+					<label for="mensaje" class="block font-semibold">Tu mensaje</label>
+					<textarea
+						id="mensaje"
+						name="mensaje"
+						rows="4"
+						required
+						class="mt-2 block w-full rounded-xl border border-crema-oscuro bg-crema px-4 py-3 text-base placeholder:text-cafe/80"
+						placeholder="Por ejemplo, dos cafés pasados y un tacacho para recoger a las 8:00 a. m."
+					></textarea>
+				</div>
+
+				<button
+					type="submit"
+					class="inline-flex min-h-12 items-center justify-center gap-2 self-start rounded-full bg-selva px-6 py-3 font-semibold text-crema-claro shadow-lg shadow-cafe-oscuro/25 transition hover:bg-orquidea motion-safe:hover:-translate-y-0.5 motion-safe:active:translate-y-0"
+				>
+					<svg
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="1.75"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						aria-hidden="true"
+						class="size-5"
+					>
+						<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
+						<path d="M8.5 11.5h.01M12 11.5h.01M15.5 11.5h.01" stroke-width="2.5"></path>
+					</svg>
+					Enviar por WhatsApp
+				</button>
+				<p id="aviso-formulario" role="status" class="text-cafe"></p>
+			</form>
+		</section>
+
+		<div class="flex flex-col gap-6 lg:col-span-2">
+			<section class="rounded-3xl bg-crema-claro p-6 shadow-lg shadow-cafe-oscuro/10 ring-1 ring-crema-oscuro sm:p-8">
+				<h2 class="text-2xl">Escríbenos o llámanos</h2>
+				<ul class="mt-4 flex flex-col gap-2">
+					<li>
+						<a
+							href={negocio.whatsapp}
+							class="inline-flex min-h-11 items-center gap-3 font-semibold text-orquidea-oscuro underline decoration-orquidea/40 underline-offset-4 transition hover:decoration-orquidea"
+						>
+							<svg
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.75"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								aria-hidden="true"
+								class="size-5 shrink-0 text-selva"
+							>
+								<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
+							</svg>
+							Escríbenos por WhatsApp
+						</a>
+					</li>
+					<li>
+						<a
+							href={negocio.telefono}
+							class="inline-flex min-h-11 items-center gap-3 font-semibold text-orquidea-oscuro underline decoration-orquidea/40 underline-offset-4 transition hover:decoration-orquidea"
+						>
+							<svg
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.75"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								aria-hidden="true"
+								class="size-5 shrink-0 text-selva"
+							>
+								<path
+									d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.7 2Z"
+								></path>
+							</svg>
+							Llámanos al {negocio.telefonoVisible}
+						</a>
+					</li>
 				</ul>
 			</section>
+			<Horario />
+		</div>
+	</div>
 
-			<section>
-				<h2>Dónde estamos</h2>
-				<address>Jr. Grau 345, a media cuadra de la Plaza de Armas de Rioja, San Martín</address>
-				<iframe
-					src="https://www.google.com/maps?q=Plaza+de+Armas+de+Rioja,+San+Martin,+Peru&z=17&output=embed"
-					title="Mapa de Café Orquídea, junto a la Plaza de Armas de Rioja"
-					width="600"
-					height="400"
-					loading="lazy"
-					referrerpolicy="no-referrer-when-downgrade"
-				></iframe>
-			</section>
+	<section class="mx-auto max-w-6xl px-4 pb-16 sm:px-6 md:pb-24">
+		<h2 class="text-3xl md:text-4xl">Dónde estamos</h2>
+		<address class="mt-3 text-lg text-cafe not-italic">
+			{negocio.direccion}. {negocio.referencia}.
+		</address>
+		<iframe
+			src="https://www.google.com/maps?q=Plaza+de+Armas+de+Rioja,+San+Martin,+Peru&z=17&output=embed"
+			title="Mapa de Café Orquídea, junto a la Plaza de Armas de Rioja"
+			width="600"
+			height="400"
+			loading="lazy"
+			referrerpolicy="no-referrer-when-downgrade"
+			class="mt-6 aspect-4/3 h-auto w-full rounded-3xl bg-crema-oscuro shadow-lg shadow-cafe-oscuro/10 ring-1 ring-crema-oscuro md:aspect-21/9"
+		></iframe>
+	</section>
+</Layout>
 
-			<section>
-				<h2>Horario</h2>
-				<ul>
-					<li>Lunes a viernes, de 7:00 a. m. a 9:00 p. m.</li>
-					<li>Sábados, de 8:00 a. m. a 2:00 p. m.</li>
-					<li>Domingos y feriados, cerrado.</li>
-				</ul>
-			</section>
-		</main>
+<script>
+	// El formulario arma el mensaje y abre WhatsApp con el texto ya escrito.
+	// encodeURIComponent convierte los espacios, las tildes y los saltos de línea
+	// en un texto que se puede poner dentro de un enlace.
+	const formulario = document.querySelector('#formulario-whatsapp');
+	const aviso = document.querySelector('#aviso-formulario');
 
-		<footer>
-			<address>
-				Jr. Grau 345, Rioja, San Martín<br />
-				<a href="tel:+51942123456">Llamar al 942 123 456</a>
-			</address>
-			<p>Café Orquídea es un negocio ficticio, creado para el curso Diseño Web del IESTP John A. Mackay.</p>
-		</footer>
-	</body>
-</html>
+	if (formulario instanceof HTMLFormElement && aviso) {
+		formulario.addEventListener('submit', (evento) => {
+			evento.preventDefault();
+			const datos = new FormData(formulario);
+			const nombre = String(datos.get('nombre')).trim();
+			const motivo = String(datos.get('motivo'));
+			const mensaje = String(datos.get('mensaje')).trim();
+
+			const texto = `Hola, Café Orquídea. Soy ${nombre}. ${motivo}\n\n${mensaje}`;
+			const enlace = `https://wa.me/51942123456?text=${encodeURIComponent(texto)}`;
+
+			window.open(enlace, '_blank', 'noopener');
+			aviso.textContent = 'Listo. Abrimos WhatsApp en otra pestaña con tu mensaje para que lo envíes.';
+		});
+	}
+</script>

@@ -1,0 +1,121 @@
+---
+// Cabecera con el logo y el menú, como en el boceto. En el celular el menú se esconde detrás
+// del botón «Menú». aria-current="page" marca la página en la que está la persona.
+const enlaces = [
+	{ href: '/', texto: 'Inicio' },
+	{ href: '/carta', texto: 'Carta' },
+	{ href: '/nosotros', texto: 'Nosotros' },
+	{ href: '/contacto', texto: 'Contacto', destacado: true },
+];
+
+// La ruta de la página actual, sin la barra del final (/carta/ y /carta son la misma).
+const actual = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+
+<header class="sticky top-0 z-40 bg-selva text-crema shadow-lg shadow-cafe-oscuro/20">
+	<div class="relative mx-auto flex h-18 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
+		<a href="/" class="flex items-center gap-3 rounded-full focus-visible:outline-orquidea-claro">
+			<span class="grid size-11 place-items-center rounded-full bg-crema">
+				<svg viewBox="0 0 24 24" aria-hidden="true" class="size-8 text-orquidea">
+					<g fill="currentColor">
+						<ellipse cx="12" cy="6.6" rx="3.3" ry="5"></ellipse>
+						<ellipse cx="12" cy="6.6" rx="3.3" ry="5" transform="rotate(72 12 12)"></ellipse>
+						<ellipse cx="12" cy="6.6" rx="3.3" ry="5" transform="rotate(144 12 12)"></ellipse>
+						<ellipse cx="12" cy="6.6" rx="3.3" ry="5" transform="rotate(216 12 12)"></ellipse>
+						<ellipse cx="12" cy="6.6" rx="3.3" ry="5" transform="rotate(288 12 12)"></ellipse>
+					</g>
+					<circle cx="12" cy="12" r="2.6" class="fill-crema"></circle>
+					<circle cx="12" cy="12" r="1.3" class="fill-selva"></circle>
+				</svg>
+			</span>
+			<span class="font-titulo text-xl font-semibold sm:text-2xl">Café Orquídea</span>
+		</a>
+
+		<nav aria-label="Principal">
+			<button
+				id="boton-menu"
+				type="button"
+				aria-expanded="false"
+				aria-controls="menu-principal"
+				class="group inline-flex min-h-11 items-center gap-2 rounded-full px-4 font-semibold ring-1 ring-crema/30 transition hover:bg-crema/10 focus-visible:outline-orquidea-claro md:hidden"
+			>
+				<svg
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="1.75"
+					stroke-linecap="round"
+					aria-hidden="true"
+					class="size-5 group-aria-expanded:hidden"
+				>
+					<path d="M4 7h16M4 12h16M4 17h16"></path>
+				</svg>
+				<svg
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="1.75"
+					stroke-linecap="round"
+					aria-hidden="true"
+					class="hidden size-5 group-aria-expanded:block"
+				>
+					<path d="M6 6l12 12M18 6L6 18"></path>
+				</svg>
+				Menú
+			</button>
+
+			<div
+				id="menu-principal"
+				class="absolute inset-x-0 top-full hidden border-t border-crema/15 bg-selva px-4 pt-2 pb-6 shadow-xl shadow-cafe-oscuro/30 motion-safe:animate-aparecer md:static md:block md:border-0 md:bg-transparent md:p-0 md:shadow-none md:motion-safe:animate-none"
+			>
+				<ul class="flex flex-col gap-1 md:flex-row md:items-center md:gap-2">
+					{
+						enlaces.map((enlace) => (
+							<li>
+								<a
+									href={enlace.href}
+									aria-current={actual === enlace.href ? 'page' : undefined}
+									class:list={[
+										'block rounded-xl px-4 py-3 text-lg font-semibold transition focus-visible:outline-orquidea-claro md:rounded-full md:py-2 md:text-base',
+										enlace.destacado
+											? 'mt-2 bg-crema text-selva hover:bg-orquidea hover:text-crema-claro aria-[current=page]:ring-2 aria-[current=page]:ring-orquidea-claro md:mt-0 md:ml-2'
+											: 'text-crema/85 hover:bg-crema/10 hover:text-crema aria-[current=page]:bg-crema/10 aria-[current=page]:text-orquidea-claro',
+									]}
+								>
+									{enlace.texto}
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+		</nav>
+	</div>
+</header>
+
+<script>
+	// Menú del celular. El botón abre y cierra la lista de enlaces y aria-expanded
+	// le cuenta al lector de pantalla si el menú está abierto. La tecla Escape lo cierra.
+	const boton = document.querySelector('#boton-menu');
+	const menu = document.querySelector('#menu-principal');
+
+	if (boton instanceof HTMLButtonElement && menu) {
+		const cerrarMenu = () => {
+			boton.setAttribute('aria-expanded', 'false');
+			menu.classList.add('hidden');
+		};
+
+		boton.addEventListener('click', () => {
+			const abierto = boton.getAttribute('aria-expanded') === 'true';
+			boton.setAttribute('aria-expanded', String(!abierto));
+			menu.classList.toggle('hidden', abierto);
+		});
+
+		document.addEventListener('keydown', (evento) => {
+			if (evento.key === 'Escape' && boton.getAttribute('aria-expanded') === 'true') {
+				cerrarMenu();
+				boton.focus();
+			}
+		});
+	}
+</script>

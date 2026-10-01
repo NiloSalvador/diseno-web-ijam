@@ -1,0 +1,26 @@
+---
+// Tarjeta de un producto con su foto, su precio y una línea que lo describe.
+// Los datos llegan por props desde src/data/carta.js.
+import { Image } from 'astro:assets';
+
+const { nombre, descripcion, precio, foto, alt } = Astro.props;
+---
+
+<article
+	class="group flex flex-col overflow-hidden rounded-3xl bg-crema-claro shadow-lg shadow-cafe-oscuro/10 ring-1 ring-crema-oscuro transition duration-300 hover:shadow-xl motion-safe:hover:-translate-y-1"
+>
+	<div class="overflow-hidden">
+		<Image
+			src={foto}
+			alt={alt}
+			widths={[400, 720]}
+			sizes="(min-width: 1024px) 360px, (min-width: 640px) 50vw, 100vw"
+			class="aspect-4/3 w-full object-cover transition duration-500 motion-safe:group-hover:scale-105"
+		/>
+	</div>
+	<div class="flex flex-1 flex-col gap-2 p-6">
+		<h3 class="text-2xl">{nombre}</h3>
+		<p class="text-cafe">{descripcion}</p>
+		<p class="mt-auto pt-3 text-xl font-semibold text-selva tabular-nums">S/ {precio.toFixed(2)}</p>
+	</div>
+</article>

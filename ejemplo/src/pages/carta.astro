@@ -1,127 +1,85 @@
 ---
-// Carta de Café Orquídea. Cada categoría es una tabla: los encabezados van en <th>
-// para que el lector de pantalla diga «Producto» y «Precio» al leer cada fila.
+// Carta de Café Orquídea, en tarjetas con foto como pide el brief. Las categorías y los precios
+// salen de src/data/carta.js. Cada categoría es una tabla: los encabezados van en <th> para que
+// el lector de pantalla diga «Producto» y «Precio» al leer cada fila.
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import BotonWhatsapp from '../components/BotonWhatsapp.astro';
+import { carta } from '../data/carta.js';
 ---
 
-<html lang="es">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Carta | Café Orquídea</title>
-	</head>
-	<body>
-		<header>
-			<a href="/">Café Orquídea</a>
-			<nav aria-label="Principal">
-				<ul>
-					<li><a href="/">Inicio</a></li>
-					<li><a href="/carta" aria-current="page">Carta</a></li>
-					<li><a href="/nosotros">Nosotros</a></li>
-					<li><a href="/contacto">Contacto</a></li>
-				</ul>
-			</nav>
-		</header>
+<Layout
+	title="Carta | Café Orquídea"
+	description="La carta de Café Orquídea en Rioja. Café pasado, desayunos de la selva y postres caseros, con sus precios en soles."
+>
+	<section class="border-b border-crema-oscuro bg-crema-oscuro/40">
+		<div class="mx-auto max-w-6xl px-4 py-14 sm:px-6 md:py-20">
+			<h1 class="text-4xl sm:text-5xl">Nuestra carta</h1>
+			<p class="mt-5 max-w-xl text-lg text-cafe">
+				Precios en soles, con IGV incluido. Para pedir y recoger, escríbenos por WhatsApp.
+			</p>
+			<div class="mt-8">
+				<BotonWhatsapp />
+			</div>
+		</div>
+	</section>
 
-		<main>
-			<h1>Nuestra carta</h1>
-			<p>Precios en soles, con IGV incluido. Para pedir y recoger, escríbenos por WhatsApp.</p>
+	<div class="mx-auto grid max-w-6xl items-start gap-6 px-4 py-16 sm:px-6 md:grid-cols-2 md:py-20 lg:grid-cols-3">
+		{
+			carta.map((grupo, posicion) => (
+				<article class="overflow-hidden rounded-3xl bg-crema-claro shadow-lg shadow-cafe-oscuro/10 ring-1 ring-crema-oscuro">
+					<Image
+						src={grupo.foto}
+						alt={grupo.alt}
+						widths={[400, 720]}
+						sizes="(min-width: 1024px) 360px, (min-width: 768px) 50vw, 100vw"
+						loading={posicion === 0 ? 'eager' : 'lazy'}
+						class="aspect-video w-full object-cover"
+					/>
+					<div class="p-6 sm:p-8">
+						<table class="w-full">
+							<caption class="text-left">
+								<span class="block font-titulo text-2xl font-semibold text-cafe">{grupo.categoria}</span>
+								<span class="mt-1 block text-cafe">{grupo.descripcion}</span>
+							</caption>
+							<thead>
+								<tr class="border-b-2 border-crema-oscuro">
+									<th scope="col" class="pt-5 pb-2 text-left text-xs font-semibold tracking-widest text-cafe uppercase">
+										Producto
+									</th>
+									<th scope="col" class="pt-5 pb-2 text-right text-xs font-semibold tracking-widest text-cafe uppercase">
+										Precio
+									</th>
+								</tr>
+							</thead>
+							<tbody class="divide-y divide-crema-oscuro">
+								{grupo.productos.map((producto) => (
+									<tr>
+										<td class="py-3 pr-4">{producto.nombre}</td>
+										<td class="py-3 text-right font-semibold whitespace-nowrap text-selva tabular-nums">
+											S/ {producto.precio.toFixed(2)}
+										</td>
+									</tr>
+								))}
+							</tbody>
+						</table>
+					</div>
+				</article>
+			))
+		}
+	</div>
 
-			<table>
-				<caption>Bebidas</caption>
-				<thead>
-					<tr>
-						<th scope="col">Producto</th>
-						<th scope="col">Precio</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>Café pasado</td>
-						<td>S/ 5.00</td>
-					</tr>
-					<tr>
-						<td>Café con leche</td>
-						<td>S/ 6.00</td>
-					</tr>
-					<tr>
-						<td>Capuchino</td>
-						<td>S/ 8.00</td>
-					</tr>
-					<tr>
-						<td>Chocolate caliente de cacao</td>
-						<td>S/ 7.00</td>
-					</tr>
-					<tr>
-						<td>Jugo de piña</td>
-						<td>S/ 7.00</td>
-					</tr>
-				</tbody>
-			</table>
-
-			<table>
-				<caption>Desayunos</caption>
-				<thead>
-					<tr>
-						<th scope="col">Producto</th>
-						<th scope="col">Precio</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>Tacacho con cecina</td>
-						<td>S/ 18.00</td>
-					</tr>
-					<tr>
-						<td>Tamal con café pasado</td>
-						<td>S/ 10.00</td>
-					</tr>
-					<tr>
-						<td>Pan con chicharrón</td>
-						<td>S/ 9.00</td>
-					</tr>
-					<tr>
-						<td>Pan con palta y huevo</td>
-						<td>S/ 8.00</td>
-					</tr>
-				</tbody>
-			</table>
-
-			<table>
-				<caption>Postres</caption>
-				<thead>
-					<tr>
-						<th scope="col">Producto</th>
-						<th scope="col">Precio</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>Torta de chocolate</td>
-						<td>S/ 8.00</td>
-					</tr>
-					<tr>
-						<td>Tres leches</td>
-						<td>S/ 8.00</td>
-					</tr>
-					<tr>
-						<td>Alfajores de maicena (tres unidades)</td>
-						<td>S/ 5.00</td>
-					</tr>
-				</tbody>
-			</table>
-
-			<p><a href="https://wa.me/51942123456">Pide por WhatsApp</a></p>
-		</main>
-
-		<footer>
-			<address>
-				Jr. Grau 345, Rioja, San Martín<br />
-				<a href="tel:+51942123456">Llamar al 942 123 456</a>
-			</address>
-			<p>Café Orquídea es un negocio ficticio, creado para el curso Diseño Web del IESTP John A. Mackay.</p>
-		</footer>
-	</body>
-</html>
+	<section class="mx-auto max-w-6xl px-4 pb-16 sm:px-6 md:pb-24">
+		<div
+			class="flex flex-col items-start gap-6 rounded-3xl bg-crema-oscuro/60 p-8 ring-1 ring-crema-oscuro sm:p-10 md:flex-row md:items-center md:justify-between"
+		>
+			<div>
+				<h2 class="text-3xl">¿Ya elegiste?</h2>
+				<p class="mt-2 max-w-lg text-lg text-cafe">
+					Escríbenos qué vas a llevar y a qué hora pasas. Lo tenemos listo para que lo recojas.
+				</p>
+			</div>
+			<BotonWhatsapp />
+		</div>
+	</section>
+</Layout>
