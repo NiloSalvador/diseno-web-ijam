@@ -1,5 +1,6 @@
 ---
-// Carta de Café Orquídea, por categorías.
+// Carta de Café Orquídea. Cada categoría es una tabla: los encabezados van en <th>
+// para que el lector de pantalla diga «Producto» y «Precio» al leer cada fila.
 ---
 
 <html lang="es">
@@ -28,35 +29,89 @@
 			<h1>Nuestra carta</h1>
 			<p>Precios en soles, con IGV incluido. Para pedir y recoger, escríbenos por WhatsApp.</p>
 
-			<section>
-				<h2>Bebidas</h2>
-				<ul>
-					<li>Café pasado, S/ 5.00</li>
-					<li>Café con leche, S/ 6.00</li>
-					<li>Capuchino, S/ 8.00</li>
-					<li>Chocolate caliente de cacao, S/ 7.00</li>
-					<li>Jugo de piña, S/ 7.00</li>
-				</ul>
-			</section>
+			<table>
+				<caption>Bebidas</caption>
+				<thead>
+					<tr>
+						<th scope="col">Producto</th>
+						<th scope="col">Precio</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Café pasado</td>
+						<td>S/ 5.00</td>
+					</tr>
+					<tr>
+						<td>Café con leche</td>
+						<td>S/ 6.00</td>
+					</tr>
+					<tr>
+						<td>Capuchino</td>
+						<td>S/ 8.00</td>
+					</tr>
+					<tr>
+						<td>Chocolate caliente de cacao</td>
+						<td>S/ 7.00</td>
+					</tr>
+					<tr>
+						<td>Jugo de piña</td>
+						<td>S/ 7.00</td>
+					</tr>
+				</tbody>
+			</table>
 
-			<section>
-				<h2>Desayunos</h2>
-				<ul>
-					<li>Tacacho con cecina, S/ 18.00</li>
-					<li>Tamal con café pasado, S/ 10.00</li>
-					<li>Pan con chicharrón, S/ 9.00</li>
-					<li>Pan con palta y huevo, S/ 8.00</li>
-				</ul>
-			</section>
+			<table>
+				<caption>Desayunos</caption>
+				<thead>
+					<tr>
+						<th scope="col">Producto</th>
+						<th scope="col">Precio</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Tacacho con cecina</td>
+						<td>S/ 18.00</td>
+					</tr>
+					<tr>
+						<td>Tamal con café pasado</td>
+						<td>S/ 10.00</td>
+					</tr>
+					<tr>
+						<td>Pan con chicharrón</td>
+						<td>S/ 9.00</td>
+					</tr>
+					<tr>
+						<td>Pan con palta y huevo</td>
+						<td>S/ 8.00</td>
+					</tr>
+				</tbody>
+			</table>
 
-			<section>
-				<h2>Postres</h2>
-				<ul>
-					<li>Torta de chocolate, S/ 8.00</li>
-					<li>Tres leches, S/ 8.00</li>
-					<li>Alfajores de maicena (tres unidades), S/ 5.00</li>
-				</ul>
-			</section>
+			<table>
+				<caption>Postres</caption>
+				<thead>
+					<tr>
+						<th scope="col">Producto</th>
+						<th scope="col">Precio</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Torta de chocolate</td>
+						<td>S/ 8.00</td>
+					</tr>
+					<tr>
+						<td>Tres leches</td>
+						<td>S/ 8.00</td>
+					</tr>
+					<tr>
+						<td>Alfajores de maicena (tres unidades)</td>
+						<td>S/ 5.00</td>
+					</tr>
+				</tbody>
+			</table>
 
 			<p><a href="https://wa.me/51942123456">Pide por WhatsApp</a></p>
 		</main>

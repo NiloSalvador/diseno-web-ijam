@@ -1,5 +1,6 @@
 ---
-// Contacto: WhatsApp, teléfono, dirección y horario.
+// Contacto: WhatsApp, teléfono, dirección con mapa y horario.
+// El mapa es un iframe de Google Maps; su «title» dice qué hay dentro para quien usa lector de pantalla.
 ---
 
 <html lang="es">
@@ -39,6 +40,14 @@
 			<section>
 				<h2>Dónde estamos</h2>
 				<address>Jr. Grau 345, a media cuadra de la Plaza de Armas de Rioja, San Martín</address>
+				<iframe
+					src="https://www.google.com/maps?q=Plaza+de+Armas+de+Rioja,+San+Martin,+Peru&z=17&output=embed"
+					title="Mapa de Café Orquídea, junto a la Plaza de Armas de Rioja"
+					width="600"
+					height="400"
+					loading="lazy"
+					referrerpolicy="no-referrer-when-downgrade"
+				></iframe>
 			</section>
 
 			<section>
