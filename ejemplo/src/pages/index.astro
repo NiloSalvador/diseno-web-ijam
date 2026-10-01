@@ -2,7 +2,6 @@
 // Inicio de Café Orquídea, el ejemplo del curso (negocio ficticio).
 // Las fotos viven en src/assets y se importan para que Astro las optimice.
 import { Image } from 'astro:assets';
-import fotoLocal from '../assets/local.jpg';
 import fotoCafe from '../assets/cafe-pasado.jpg';
 import fotoDesayuno from '../assets/desayuno.jpg';
 import fotoPostre from '../assets/postre.jpg';
@@ -34,11 +33,7 @@ import fotoPostre from '../assets/postre.jpg';
 			<section>
 				<h1>Café Orquídea</h1>
 				<p>Café de la provincia, desayunos y postres caseros en el centro de Rioja.</p>
-				<Image
-					src={fotoLocal}
-					alt="Salón de Café Orquídea con mesas de madera, plantas y orquídeas junto a la ventana"
-					width={640}
-				/>
+				<img src="../assets/local.jpg" alt="Salón de Café Orquídea con mesas de madera, plantas y orquídeas junto a la ventana" width="640" />
 				<p><a href="https://wa.me/51942123456">Pide por WhatsApp</a></p>
 			</section>
 
