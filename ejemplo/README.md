@@ -1,28 +1,16 @@
-# Sitio web del curso Diseño Web IJAM
+# Ejemplo del curso: Café Orquídea
 
-Punto de partida del proyecto del curso **Diseño Web** del IESTP John A. Mackay (Rioja). Cada alumno crea su copia
-con el botón **Use this template** y construye, semana a semana, el sitio web de un negocio real de su entorno.
+Sitio de ejemplo que se construye en los vídeos del curso **Diseño Web** del IESTP John A. Mackay. Café Orquídea es
+un negocio **ficticio** de Rioja; sus datos son inventados.
 
-Las guías de cada semana están en el repositorio del curso:
-**https://github.com/NiloSalvador/diseno-web-ijam**
+Cada semana tiene su etiqueta (`semana-1`, `semana-2`…) con el sitio tal como debe quedar al terminarla. Para ver una
+semana en GitHub, elige la etiqueta en el selector de ramas y etiquetas.
 
-## Comandos
+## Probarlo en tu PC
 
-Se escriben en la terminal de VS Code, dentro de la carpeta del proyecto.
+```
+npm install
+npm run dev
+```
 
-| Comando | Para qué sirve |
-| :-- | :-- |
-| `npm install` | Instala lo que necesita el proyecto (la primera vez) |
-| `npm run dev` | Enciende el sitio en `http://localhost:4321` mientras trabajas |
-| `npm run revisar -- 1` | Revisa la entrega de la semana 1 (cambia el número según la semana) |
-| `npm run build` | Genera la versión final del sitio en la carpeta `dist` |
-
-## Qué hay en esta carpeta
-
-| Carpeta o archivo | Contenido |
-| :-- | :-- |
-| `src/pages/` | Las páginas del sitio; cada archivo `.astro` es una página |
-| `public/` | Archivos que se publican tal cual, como el ícono de la pestaña |
-| `BRIEF.md` | El brief del proyecto: qué negocio es, para quién y cómo se verá |
-| `boceto/` | La foto del boceto de la página de inicio |
-| `revisor/` | El revisor que te dice qué falta en tu entrega |
+Luego abre `http://localhost:4321`. Para comprobar la entrega de una semana: `npm run revisar -- 1`.
