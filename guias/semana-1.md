@@ -168,7 +168,7 @@ aparece tu `BRIEF.md` lleno y la foto del boceto.
 ## Entrega
 
 En el aula, en la tarea **Semana 1**, pega el enlace de tu repositorio (por ejemplo
-`https://github.com/juan-perez-dev/sitio-bodega-don-lucho`). Plazo, antes de la clase del jueves 8 de octubre.
+`https://github.com/juan-perez-dev/sitio-bodega-don-lucho`). Plazo hasta el miércoles 7 de octubre a las 23:59.
 
 ## Si algo falla
 
