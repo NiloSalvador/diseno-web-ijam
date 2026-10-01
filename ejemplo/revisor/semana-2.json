@@ -1,0 +1,90 @@
+{
+  "semana": 2,
+  "titulo": "HTML semántico y varias páginas",
+  "revisorMinimo": 2,
+  "paginasMinimas": 4,
+  "criterios": [
+    {
+      "tipo": "compila",
+      "puntos": 10,
+      "nombre": "El sitio compila"
+    },
+    {
+      "tipo": "paginas",
+      "puntos": 10,
+      "nombre": "Hay cuatro páginas con su contenido",
+      "minimo": 4,
+      "etiqueta": "main",
+      "minimoPalabras": 25
+    },
+    {
+      "tipo": "atributo-html",
+      "puntos": 5,
+      "nombre": "Cada página dice que está en español",
+      "atributo": "lang",
+      "valor": "es"
+    },
+    {
+      "tipo": "etiquetas-por-pagina",
+      "puntos": 10,
+      "nombre": "Cada página tiene cabecera, menú, contenido principal y pie",
+      "etiquetas": ["header", "nav", "main", "footer"]
+    },
+    {
+      "tipo": "una-por-pagina",
+      "puntos": 10,
+      "nombre": "Cada página tiene un solo encabezado principal",
+      "etiqueta": "h1",
+      "distintoDe": ["Nombre de tu negocio", "Astro"]
+    },
+    {
+      "tipo": "titulos-unicos",
+      "puntos": 10,
+      "nombre": "Cada página tiene su propio título de pestaña",
+      "distintoDe": ["Nombre de tu negocio", "Astro"]
+    },
+    {
+      "tipo": "enlaces-internos",
+      "puntos": 10,
+      "nombre": "El menú lleva a todas las páginas y ningún enlace está roto"
+    },
+    {
+      "tipo": "enlaces-con",
+      "puntos": 5,
+      "nombre": "Hay un enlace para llamar y otro de WhatsApp",
+      "enlaces": [
+        { "nombre": "para llamar", "prefijos": ["tel:"] },
+        { "nombre": "de WhatsApp", "prefijos": ["https://wa.me/", "https://api.whatsapp.com/"] }
+      ]
+    },
+    {
+      "tipo": "imagenes-alt",
+      "puntos": 10,
+      "nombre": "Hay al menos tres imágenes y cada una dice qué muestra",
+      "minimo": 3,
+      "genericas": ["imagen", "foto", "image", "img", "picture", "logo", "una foto", "una imagen"]
+    },
+    {
+      "tipo": "imagenes-cargan",
+      "puntos": 5,
+      "nombre": "Todas las imágenes cargan"
+    },
+    {
+      "tipo": "imagenes-optimizadas",
+      "puntos": 5,
+      "nombre": "Las fotos pasan por <Image /> de Astro",
+      "minimo": 1
+    },
+    {
+      "tipo": "tabla-con-th",
+      "puntos": 5,
+      "nombre": "Hay una tabla con encabezados"
+    },
+    {
+      "tipo": "iframe-con-title",
+      "puntos": 5,
+      "nombre": "El mapa tiene un título que dice qué muestra",
+      "minimo": 1
+    }
+  ]
+}
