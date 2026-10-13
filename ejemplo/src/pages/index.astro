@@ -77,3 +77,25 @@ import fotoPostre from '../assets/postre.jpg';
 		</footer>
 	</body>
 </html>
+
+<style>
+	/* Una regla dice a quién (el selector) y qué le cambia (las declaraciones, propiedad: valor;).
+	   En Astro, este <style> solo afecta a esta página: las demás no lo ven. */
+	body {
+		margin: 0;
+		background-color: #f6efe4; /* crema, el fondo de la marca */
+		color: #2b1b12;
+		font-family: system-ui, sans-serif;
+		font-size: 1.0625rem; /* 17 px, porque 1 rem son los 16 px del navegador */
+		line-height: 1.6;
+	}
+
+	/* Cascada. Los títulos heredan el color del body, pero esta regla les habla directo y gana. */
+	h1,
+	h2,
+	h3 {
+		font-family: Georgia, serif;
+		color: #6b3e26; /* café */
+		line-height: 1.15;
+	}
+</style>
