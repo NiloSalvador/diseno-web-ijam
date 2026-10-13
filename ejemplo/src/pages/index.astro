@@ -39,7 +39,7 @@ import fotoPostre from '../assets/postre.jpg';
 					alt="Salón de Café Orquídea con mesas de madera, plantas y orquídeas junto a la ventana"
 					width={640}
 				/>
-				<p><a href="https://wa.me/51942123456">Pide por WhatsApp</a></p>
+				<p><a class="boton" href="https://wa.me/51942123456">Pide por WhatsApp</a></p>
 			</section>
 
 			<section>
@@ -111,7 +111,33 @@ import fotoPostre from '../assets/postre.jpg';
 		text-decoration: none;
 	}
 
+	/* El margin es el espacio de afuera. Con auto a los lados, la caja queda centrada. */
+	main {
+		max-width: 48rem;
+		margin: 0 auto;
+		padding: 2rem 1.5rem;
+	}
+
+	img {
+		max-width: 100%; /* nunca más ancha que su caja, también en el celular */
+		height: auto;
+		border-radius: 1rem;
+	}
+
 	a {
 		color: #8e3462;
+	}
+
+	/* La caja completa: contenido, padding, borde y margin. La clase gana a la regla «a». */
+	.boton {
+		display: inline-block;
+		padding: 0.75rem 1.5rem;
+		border: 2px solid #b5487e;
+		border-radius: 999px;
+		margin-top: 1rem;
+		background-color: #b5487e; /* orquídea, el acento de lo que se puede pulsar */
+		color: #fcf9f4;
+		font-weight: 600;
+		text-decoration: none;
 	}
 </style>
