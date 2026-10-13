@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+/* La marca de Café Orquídea, tal como la pide el brief. Cada variable de @theme se vuelve una
+   clase de Tailwind, por ejemplo --color-selva da bg-selva, text-selva y border-selva, y
+   --font-titulo da font-titulo. */
+@theme {
+	/* Los cuatro colores del brief */
+	--color-selva: #1f4d3a; /* verde selva, para la cabecera y los botones */
+	--color-crema: #f6efe4; /* el fondo */
+	--color-cafe: #6b3e26; /* los títulos */
+	--color-orquidea: #b5487e; /* el acento en lo que se puede pulsar */
+
+	/* Tonos derivados, para el texto y los enlaces */
+	--color-crema-claro: #fcf9f4;
+	--color-cafe-oscuro: #2b1b12;
+	--color-orquidea-oscuro: #8e3462;
+	--color-orquidea-claro: #edbcd5;
+
+	/* Las dos fuentes del brief, cada una con otra de reserva por si no carga */
+	--font-titulo: "Fraunces", Georgia, serif;
+	--font-texto: "Inter", system-ui, sans-serif;
+}

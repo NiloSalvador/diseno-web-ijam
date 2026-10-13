@@ -1,6 +1,12 @@
 ---
 // Carta de Café Orquídea. Cada categoría es una tabla: los encabezados van en <th>
 // para que el lector de pantalla diga «Producto» y «Precio» al leer cada fila.
+// Las fuentes de la marca y los estilos de Tailwind. Por ahora se importan en cada página;
+// en la semana 5 irán una sola vez en el layout.
+import '@fontsource/fraunces/600.css';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/600.css';
+import '../styles/global.css';
 ---
 
 <html lang="es">
@@ -12,114 +18,114 @@
 		<meta name="generator" content={Astro.generator} />
 		<title>Carta | Café Orquídea</title>
 	</head>
-	<body>
-		<header>
-			<a href="/">Café Orquídea</a>
+	<body class="bg-crema font-texto leading-relaxed text-cafe-oscuro antialiased">
+		<header class="bg-selva px-6 py-4">
+			<a href="/" class="font-titulo text-2xl font-semibold text-crema">Café Orquídea</a>
 			<nav aria-label="Principal">
-				<ul>
-					<li><a href="/">Inicio</a></li>
-					<li><a href="/carta" aria-current="page">Carta</a></li>
-					<li><a href="/nosotros">Nosotros</a></li>
-					<li><a href="/contacto">Contacto</a></li>
+				<ul class="mt-2">
+					<li class="mr-4 inline-block"><a href="/" class="font-semibold text-crema hover:text-orquidea-claro">Inicio</a></li>
+					<li class="mr-4 inline-block"><a href="/carta" aria-current="page" class="font-semibold text-crema underline underline-offset-4">Carta</a></li>
+					<li class="mr-4 inline-block"><a href="/nosotros" class="font-semibold text-crema hover:text-orquidea-claro">Nosotros</a></li>
+					<li class="mr-4 inline-block"><a href="/contacto" class="font-semibold text-crema hover:text-orquidea-claro">Contacto</a></li>
 				</ul>
 			</nav>
 		</header>
 
-		<main>
-			<h1>Nuestra carta</h1>
-			<p>Precios en soles, con IGV incluido. Para pedir y recoger, escríbenos por WhatsApp.</p>
+		<main class="mx-auto max-w-3xl px-6 py-10">
+			<h1 class="font-titulo text-5xl font-semibold leading-tight text-cafe">Nuestra carta</h1>
+			<p class="mt-4 mb-10">Precios en soles, con IGV incluido. Para pedir y recoger, escríbenos por WhatsApp.</p>
 
-			<table>
-				<caption>Bebidas</caption>
+			<table class="mb-10 w-full">
+				<caption class="mb-3 text-left font-titulo text-2xl font-semibold text-cafe">Bebidas</caption>
 				<thead>
 					<tr>
-						<th scope="col">Producto</th>
-						<th scope="col">Precio</th>
+						<th scope="col" class="border-b-2 border-cafe py-2 text-left">Producto</th>
+						<th scope="col" class="border-b-2 border-cafe py-2 text-right">Precio</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td>Café pasado</td>
-						<td>S/ 5.00</td>
+						<td class="border-b border-cafe/20 py-2">Café pasado</td>
+						<td class="border-b border-cafe/20 py-2 text-right">S/ 5.00</td>
 					</tr>
 					<tr>
-						<td>Café con leche</td>
-						<td>S/ 6.00</td>
+						<td class="border-b border-cafe/20 py-2">Café con leche</td>
+						<td class="border-b border-cafe/20 py-2 text-right">S/ 6.00</td>
 					</tr>
 					<tr>
-						<td>Capuchino</td>
-						<td>S/ 8.00</td>
+						<td class="border-b border-cafe/20 py-2">Capuchino</td>
+						<td class="border-b border-cafe/20 py-2 text-right">S/ 8.00</td>
 					</tr>
 					<tr>
-						<td>Chocolate caliente de cacao</td>
-						<td>S/ 7.00</td>
+						<td class="border-b border-cafe/20 py-2">Chocolate caliente de cacao</td>
+						<td class="border-b border-cafe/20 py-2 text-right">S/ 7.00</td>
 					</tr>
 					<tr>
-						<td>Jugo de piña</td>
-						<td>S/ 7.00</td>
+						<td class="border-b border-cafe/20 py-2">Jugo de piña</td>
+						<td class="border-b border-cafe/20 py-2 text-right">S/ 7.00</td>
 					</tr>
 				</tbody>
 			</table>
 
-			<table>
-				<caption>Desayunos</caption>
+			<table class="mb-10 w-full">
+				<caption class="mb-3 text-left font-titulo text-2xl font-semibold text-cafe">Desayunos</caption>
 				<thead>
 					<tr>
-						<th scope="col">Producto</th>
-						<th scope="col">Precio</th>
+						<th scope="col" class="border-b-2 border-cafe py-2 text-left">Producto</th>
+						<th scope="col" class="border-b-2 border-cafe py-2 text-right">Precio</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td>Tacacho con cecina</td>
-						<td>S/ 18.00</td>
+						<td class="border-b border-cafe/20 py-2">Tacacho con cecina</td>
+						<td class="border-b border-cafe/20 py-2 text-right">S/ 18.00</td>
 					</tr>
 					<tr>
-						<td>Tamal con café pasado</td>
-						<td>S/ 10.00</td>
+						<td class="border-b border-cafe/20 py-2">Tamal con café pasado</td>
+						<td class="border-b border-cafe/20 py-2 text-right">S/ 10.00</td>
 					</tr>
 					<tr>
-						<td>Pan con chicharrón</td>
-						<td>S/ 9.00</td>
+						<td class="border-b border-cafe/20 py-2">Pan con chicharrón</td>
+						<td class="border-b border-cafe/20 py-2 text-right">S/ 9.00</td>
 					</tr>
 					<tr>
-						<td>Pan con palta y huevo</td>
-						<td>S/ 8.00</td>
+						<td class="border-b border-cafe/20 py-2">Pan con palta y huevo</td>
+						<td class="border-b border-cafe/20 py-2 text-right">S/ 8.00</td>
 					</tr>
 				</tbody>
 			</table>
 
-			<table>
-				<caption>Postres</caption>
+			<table class="mb-10 w-full">
+				<caption class="mb-3 text-left font-titulo text-2xl font-semibold text-cafe">Postres</caption>
 				<thead>
 					<tr>
-						<th scope="col">Producto</th>
-						<th scope="col">Precio</th>
+						<th scope="col" class="border-b-2 border-cafe py-2 text-left">Producto</th>
+						<th scope="col" class="border-b-2 border-cafe py-2 text-right">Precio</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td>Torta de chocolate</td>
-						<td>S/ 8.00</td>
+						<td class="border-b border-cafe/20 py-2">Torta de chocolate</td>
+						<td class="border-b border-cafe/20 py-2 text-right">S/ 8.00</td>
 					</tr>
 					<tr>
-						<td>Tres leches</td>
-						<td>S/ 8.00</td>
+						<td class="border-b border-cafe/20 py-2">Tres leches</td>
+						<td class="border-b border-cafe/20 py-2 text-right">S/ 8.00</td>
 					</tr>
 					<tr>
-						<td>Alfajores de maicena (tres unidades)</td>
-						<td>S/ 5.00</td>
+						<td class="border-b border-cafe/20 py-2">Alfajores de maicena (tres unidades)</td>
+						<td class="border-b border-cafe/20 py-2 text-right">S/ 5.00</td>
 					</tr>
 				</tbody>
 			</table>
 
-			<p><a href="https://wa.me/51942123456">Pide por WhatsApp</a></p>
+			<p><a href="https://wa.me/51942123456" class="inline-block rounded-full bg-orquidea px-6 py-3 font-semibold text-crema-claro hover:bg-orquidea-oscuro">Pide por WhatsApp</a></p>
 		</main>
 
-		<footer>
-			<address>
+		<footer class="space-y-4 bg-selva px-6 py-8 text-sm text-crema">
+			<address class="not-italic">
 				Jr. Grau 345, Rioja, San Martín<br />
-				<a href="tel:+51942123456">Llamar al 942 123 456</a>
+				<a href="tel:+51942123456" class="font-semibold text-orquidea-claro underline underline-offset-4">Llamar al 942 123 456</a>
 			</address>
 			<p>Café Orquídea es un negocio ficticio, creado para el curso Diseño Web del IESTP John A. Mackay.</p>
 		</footer>

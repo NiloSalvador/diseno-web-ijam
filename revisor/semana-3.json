@@ -1,0 +1,124 @@
+{
+  "semana": 3,
+  "titulo": "CSS y Tailwind con la marca de tu negocio",
+  "revisorMinimo": 3,
+  "paginasMinimas": 4,
+  "criterios": [
+    {
+      "tipo": "compila",
+      "puntos": 10,
+      "nombre": "El sitio compila"
+    },
+    {
+      "tipo": "tailwind-instalado",
+      "puntos": 15,
+      "nombre": "Tailwind está instalado y llega a las cuatro páginas"
+    },
+    {
+      "tipo": "tema-tailwind",
+      "puntos": 15,
+      "nombre": "Los colores y la fuente de tu marca están en @theme y se usan",
+      "minimoColores": 3
+    },
+    {
+      "tipo": "clases-generadas",
+      "puntos": 5,
+      "nombre": "Todas las clases con los nombres de tu marca tienen estilos"
+    },
+    {
+      "tipo": "prohibido-en-src",
+      "puntos": 5,
+      "nombre": "Ninguna etiqueta lleva estilos en línea",
+      "extensiones": [".astro", ".html", ".md", ".mdx", ".jsx", ".tsx"],
+      "patron": "\\sstyle\\s*=\\s*(?:\"[^\"]*\"|'[^']*'|\\{[^}]*\\}+)",
+      "mensaje": "la etiqueta lleva {texto}.",
+      "consejo": "Pasa ese estilo a clases de Tailwind y borra el atributo style."
+    },
+    {
+      "tipo": "prohibido-en-src",
+      "puntos": 5,
+      "nombre": "Ningún color suelto como bg-[#…], todos salen de @theme",
+      "extensiones": [".astro", ".html", ".md", ".mdx", ".js", ".jsx", ".ts", ".tsx", ".css"],
+      "patron": "[\\w:/-]*-\\[(?:#|rgba?\\(|hsla?\\(|oklch\\(|oklab\\()[^\\]\\s]*\\]",
+      "mensaje": "la clase {texto} pone un color suelto.",
+      "consejo": "Escribe ese color en @theme con un nombre (por ejemplo --color-selva) y usa la clase con ese nombre (bg-selva)."
+    },
+    {
+      "tipo": "paginas",
+      "puntos": 5,
+      "nombre": "Siguen las cuatro páginas con su contenido",
+      "minimo": 4,
+      "etiqueta": "main",
+      "minimoPalabras": 25
+    },
+    {
+      "tipo": "atributo-html",
+      "puntos": 3,
+      "nombre": "Cada página dice que está en español",
+      "atributo": "lang",
+      "valor": "es"
+    },
+    {
+      "tipo": "etiquetas-por-pagina",
+      "puntos": 5,
+      "nombre": "Cada página tiene cabecera, menú, contenido principal y pie",
+      "etiquetas": ["header", "nav", "main", "footer"]
+    },
+    {
+      "tipo": "una-por-pagina",
+      "puntos": 5,
+      "nombre": "Cada página tiene un solo encabezado principal",
+      "etiqueta": "h1",
+      "distintoDe": ["Nombre de tu negocio", "Nombre del negocio", "Astro"]
+    },
+    {
+      "tipo": "titulos-unicos",
+      "puntos": 4,
+      "nombre": "Cada página tiene su propio título de pestaña",
+      "distintoDe": ["Nombre de tu negocio", "Nombre del negocio", "Astro"]
+    },
+    {
+      "tipo": "enlaces-internos",
+      "puntos": 5,
+      "nombre": "El menú lleva a todas las páginas y ningún enlace está roto"
+    },
+    {
+      "tipo": "enlaces-con",
+      "puntos": 3,
+      "nombre": "Hay un enlace para llamar y otro de WhatsApp",
+      "enlaces": [
+        { "nombre": "para llamar", "prefijos": ["tel:"] },
+        { "nombre": "de WhatsApp", "prefijos": ["https://wa.me/", "https://api.whatsapp.com/"] }
+      ]
+    },
+    {
+      "tipo": "imagenes-alt",
+      "puntos": 4,
+      "nombre": "Hay al menos tres imágenes y cada una dice qué muestra",
+      "minimo": 3,
+      "genericas": ["imagen", "foto", "image", "img", "picture", "logo", "una foto", "una imagen"]
+    },
+    {
+      "tipo": "imagenes-cargan",
+      "puntos": 3,
+      "nombre": "Todas las imágenes cargan"
+    },
+    {
+      "tipo": "imagenes-optimizadas",
+      "puntos": 3,
+      "nombre": "Las fotos pasan por <Image /> de Astro",
+      "minimo": 1
+    },
+    {
+      "tipo": "tabla-con-th",
+      "puntos": 2,
+      "nombre": "Hay una tabla con encabezados"
+    },
+    {
+      "tipo": "iframe-con-title",
+      "puntos": 3,
+      "nombre": "El mapa tiene un título que dice qué muestra",
+      "minimo": 1
+    }
+  ]
+}

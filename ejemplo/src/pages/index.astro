@@ -6,6 +6,12 @@ import fotoLocal from '../assets/local.jpg';
 import fotoCafe from '../assets/cafe-pasado.jpg';
 import fotoDesayuno from '../assets/desayuno.jpg';
 import fotoPostre from '../assets/postre.jpg';
+// Las fuentes de la marca y los estilos de Tailwind. Por ahora se importan en cada página;
+// en la semana 5 irán una sola vez en el layout.
+import '@fontsource/fraunces/600.css';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/600.css';
+import '../styles/global.css';
 ---
 
 <html lang="es">
@@ -17,164 +23,64 @@ import fotoPostre from '../assets/postre.jpg';
 		<meta name="generator" content={Astro.generator} />
 		<title>Café Orquídea | Cafetería en Rioja</title>
 	</head>
-	<body>
-		<header>
-			<a href="/">Café Orquídea</a>
+	<body class="bg-crema font-texto leading-relaxed text-cafe-oscuro antialiased">
+		<header class="bg-selva px-6 py-4">
+			<a href="/" class="font-titulo text-2xl font-semibold text-crema">Café Orquídea</a>
 			<nav aria-label="Principal">
-				<ul>
-					<li><a href="/" aria-current="page">Inicio</a></li>
-					<li><a href="/carta">Carta</a></li>
-					<li><a href="/nosotros">Nosotros</a></li>
-					<li><a href="/contacto">Contacto</a></li>
+				<ul class="mt-2">
+					<li class="mr-4 inline-block"><a href="/" aria-current="page" class="font-semibold text-crema underline underline-offset-4">Inicio</a></li>
+					<li class="mr-4 inline-block"><a href="/carta" class="font-semibold text-crema hover:text-orquidea-claro">Carta</a></li>
+					<li class="mr-4 inline-block"><a href="/nosotros" class="font-semibold text-crema hover:text-orquidea-claro">Nosotros</a></li>
+					<li class="mr-4 inline-block"><a href="/contacto" class="font-semibold text-crema hover:text-orquidea-claro">Contacto</a></li>
 				</ul>
 			</nav>
 		</header>
 
-		<main>
-			<section>
-				<h1>Café Orquídea</h1>
-				<p>Café de la provincia, desayunos y postres caseros en el centro de Rioja.</p>
-				<Image
+		<main class="mx-auto max-w-3xl px-6 py-10">
+			<section class="mb-12 space-y-4">
+				<h1 class="font-titulo text-5xl font-semibold leading-tight text-cafe">Café Orquídea</h1>
+				<p class="text-lg">Café de la provincia, desayunos y postres caseros en el centro de Rioja.</p>
+				<Image class="rounded-2xl"
 					src={fotoLocal}
 					alt="Salón de Café Orquídea con mesas de madera, plantas y orquídeas junto a la ventana"
 					width={640}
 				/>
-				<p><a class="boton" href="https://wa.me/51942123456">Pide por WhatsApp</a></p>
+				<p><a href="https://wa.me/51942123456" class="inline-block rounded-full bg-orquidea px-6 py-3 font-semibold text-crema-claro hover:bg-orquidea-oscuro">Pide por WhatsApp</a></p>
 			</section>
 
-			<section>
-				<h2>Lo más pedido</h2>
-				<article>
-					<h3>Café pasado</h3>
-					<Image src={fotoCafe} alt="Taza de café pasado con granos tostados sobre una mesa de madera" width={320} />
+			<section class="mb-12 space-y-4">
+				<h2 class="font-titulo text-3xl font-semibold text-cafe">Lo más pedido</h2>
+				<article class="space-y-2">
+					<h3 class="font-titulo text-xl font-semibold text-cafe">Café pasado</h3>
+					<Image class="rounded-2xl" src={fotoCafe} alt="Taza de café pasado con granos tostados sobre una mesa de madera" width={320} />
 					<p>Café de altura del Alto Mayo, pasado en filtro de tela al momento.</p>
 				</article>
-				<article>
-					<h3>Tacacho con cecina</h3>
-					<Image src={fotoDesayuno} alt="Plato de tacacho con cecina, salsa criolla y una taza de café" width={320} />
+				<article class="space-y-2">
+					<h3 class="font-titulo text-xl font-semibold text-cafe">Tacacho con cecina</h3>
+					<Image class="rounded-2xl" src={fotoDesayuno} alt="Plato de tacacho con cecina, salsa criolla y una taza de café" width={320} />
 					<p>El desayuno de la selva, con plátano verde asado y cecina ahumada.</p>
 				</article>
-				<article>
-					<h3>Torta de chocolate</h3>
-					<Image src={fotoPostre} alt="Tajada de torta de chocolate con cobertura de chocolate en un plato blanco" width={320} />
+				<article class="space-y-2">
+					<h3 class="font-titulo text-xl font-semibold text-cafe">Torta de chocolate</h3>
+					<Image class="rounded-2xl" src={fotoPostre} alt="Tajada de torta de chocolate con cobertura de chocolate en un plato blanco" width={320} />
 					<p>Hecha en casa cada mañana con cacao de San Martín.</p>
 				</article>
-				<p><a href="/carta">Ver la carta completa</a></p>
+				<p><a href="/carta" class="font-semibold text-orquidea-oscuro underline underline-offset-4 hover:text-orquidea">Ver la carta completa</a></p>
 			</section>
 
-			<section>
-				<h2>Horario</h2>
+			<section class="mb-12 space-y-4">
+				<h2 class="font-titulo text-3xl font-semibold text-cafe">Horario</h2>
 				<p>De lunes a viernes, de 7:00 a. m. a 9:00 p. m. Los sábados, de 8:00 a. m. a 2:00 p. m.</p>
 			</section>
 		</main>
 
-		<footer>
-			<address>
+		<footer class="space-y-4 bg-selva px-6 py-8 text-sm text-crema">
+			<address class="not-italic">
 				Jr. Grau 345, Rioja, San Martín<br />
-				<a href="tel:+51942123456">Llamar al 942 123 456</a>
+				<a href="tel:+51942123456" class="font-semibold text-orquidea-claro underline underline-offset-4">Llamar al 942 123 456</a>
 			</address>
 			<p>Café Orquídea es un negocio ficticio, creado para el curso Diseño Web del IESTP John A. Mackay.</p>
 		</footer>
 	</body>
 </html>
 
-<style>
-	/* Una regla dice a quién (el selector) y qué le cambia (las declaraciones, propiedad: valor;).
-	   En Astro, este <style> solo afecta a esta página: las demás no lo ven. */
-	body {
-		margin: 0;
-		background-color: #f6efe4; /* crema, el fondo de la marca */
-		color: #2b1b12;
-		font-family: system-ui, sans-serif;
-		font-size: 1.0625rem; /* 17 px, porque 1 rem son los 16 px del navegador */
-		line-height: 1.6;
-	}
-
-	/* Cascada. Los títulos heredan el color del body, pero esta regla les habla directo y gana. */
-	h1,
-	h2,
-	h3 {
-		font-family: Georgia, serif;
-		color: #6b3e26; /* café */
-		line-height: 1.15;
-	}
-
-	h1 {
-		font-size: 2.75rem;
-		margin: 0 0 0.5rem;
-	}
-
-	/* Modelo de caja. El padding es el relleno entre el borde y el contenido. */
-	header {
-		background-color: #1f4d3a; /* verde selva */
-		padding: 1rem 1.5rem;
-	}
-
-	header a {
-		color: #f6efe4;
-		font-weight: 600;
-		text-decoration: none;
-	}
-
-	nav ul {
-		list-style: none;
-		margin: 0.5rem 0 0;
-		padding: 0;
-	}
-
-	nav li {
-		display: inline-block;
-		margin-right: 1rem;
-	}
-
-	/* Más específica que «header a», así que la página actual se subraya. */
-	nav a[aria-current='page'] {
-		text-decoration: underline;
-		text-underline-offset: 0.3em;
-	}
-
-	/* El margin es el espacio de afuera. Con auto a los lados, la caja queda centrada. */
-	main {
-		max-width: 48rem;
-		margin: 0 auto;
-		padding: 2rem 1.5rem;
-	}
-
-	section {
-		margin-bottom: 3rem;
-	}
-
-	img {
-		max-width: 100%; /* nunca más ancha que su caja, también en el celular */
-		height: auto;
-		border-radius: 1rem;
-	}
-
-	a {
-		color: #8e3462;
-	}
-
-	/* La caja completa: contenido, padding, borde y margin. La clase gana a la regla «a». */
-	.boton {
-		display: inline-block;
-		padding: 0.75rem 1.5rem;
-		border: 2px solid #b5487e;
-		border-radius: 999px;
-		margin-top: 1rem;
-		background-color: #b5487e; /* orquídea, el acento de lo que se puede pulsar */
-		color: #fcf9f4;
-		font-weight: 600;
-		text-decoration: none;
-	}
-
-	footer {
-		background-color: #1f4d3a;
-		color: #f6efe4;
-		padding: 2rem 1.5rem;
-		font-size: 0.875rem;
-	}
-
-	footer a {
-		color: #edbcd5;
-	}
-</style>

@@ -1,6 +1,12 @@
 ---
 // Contacto: WhatsApp, teléfono, dirección con mapa y horario.
 // El mapa es un iframe de Google Maps; su «title» dice qué hay dentro para quien usa lector de pantalla.
+// Las fuentes de la marca y los estilos de Tailwind. Por ahora se importan en cada página;
+// en la semana 5 irán una sola vez en el layout.
+import '@fontsource/fraunces/600.css';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/600.css';
+import '../styles/global.css';
 ---
 
 <html lang="es">
@@ -12,35 +18,36 @@
 		<meta name="generator" content={Astro.generator} />
 		<title>Contacto | Café Orquídea</title>
 	</head>
-	<body>
-		<header>
-			<a href="/">Café Orquídea</a>
+	<body class="bg-crema font-texto leading-relaxed text-cafe-oscuro antialiased">
+		<header class="bg-selva px-6 py-4">
+			<a href="/" class="font-titulo text-2xl font-semibold text-crema">Café Orquídea</a>
 			<nav aria-label="Principal">
-				<ul>
-					<li><a href="/">Inicio</a></li>
-					<li><a href="/carta">Carta</a></li>
-					<li><a href="/nosotros">Nosotros</a></li>
-					<li><a href="/contacto" aria-current="page">Contacto</a></li>
+				<ul class="mt-2">
+					<li class="mr-4 inline-block"><a href="/" class="font-semibold text-crema hover:text-orquidea-claro">Inicio</a></li>
+					<li class="mr-4 inline-block"><a href="/carta" class="font-semibold text-crema hover:text-orquidea-claro">Carta</a></li>
+					<li class="mr-4 inline-block"><a href="/nosotros" class="font-semibold text-crema hover:text-orquidea-claro">Nosotros</a></li>
+					<li class="mr-4 inline-block"><a href="/contacto" aria-current="page" class="font-semibold text-crema underline underline-offset-4">Contacto</a></li>
 				</ul>
 			</nav>
 		</header>
 
-		<main>
-			<h1>Contacto</h1>
+		<main class="mx-auto max-w-3xl px-6 py-10">
+			<h1 class="mb-8 font-titulo text-5xl font-semibold leading-tight text-cafe">Contacto</h1>
 
-			<section>
-				<h2>Pide o reserva</h2>
+			<section class="mb-12 space-y-4">
+				<h2 class="font-titulo text-3xl font-semibold text-cafe">Pide o reserva</h2>
 				<p>Escríbenos para pedir y recoger, o para reservar una mesa para tu grupo.</p>
-				<ul>
-					<li><a href="https://wa.me/51942123456">Escríbenos por WhatsApp</a></li>
-					<li><a href="tel:+51942123456">Llámanos al 942 123 456</a></li>
+				<ul class="space-y-3">
+					<li><a href="https://wa.me/51942123456" class="inline-block rounded-full bg-orquidea px-6 py-3 font-semibold text-crema-claro hover:bg-orquidea-oscuro">Escríbenos por WhatsApp</a></li>
+					<li><a href="tel:+51942123456" class="inline-block rounded-full border-2 border-selva px-6 py-3 font-semibold text-selva hover:bg-selva hover:text-crema">Llámanos al 942 123 456</a></li>
 				</ul>
 			</section>
 
-			<section>
-				<h2>Dónde estamos</h2>
-				<address>Jr. Grau 345, a media cuadra de la Plaza de Armas de Rioja, San Martín</address>
+			<section class="mb-12 space-y-4">
+				<h2 class="font-titulo text-3xl font-semibold text-cafe">Dónde estamos</h2>
+				<address class="not-italic">Jr. Grau 345, a media cuadra de la Plaza de Armas de Rioja, San Martín</address>
 				<iframe
+					class="h-80 w-full rounded-2xl"
 					src="https://www.google.com/maps?q=Plaza+de+Armas+de+Rioja,+San+Martin,+Peru&z=17&output=embed"
 					title="Mapa de Café Orquídea, junto a la Plaza de Armas de Rioja"
 					width="600"
@@ -50,9 +57,9 @@
 				></iframe>
 			</section>
 
-			<section>
-				<h2>Horario</h2>
-				<ul>
+			<section class="mb-12 space-y-4">
+				<h2 class="font-titulo text-3xl font-semibold text-cafe">Horario</h2>
+				<ul class="list-disc pl-6">
 					<li>Lunes a viernes, de 7:00 a. m. a 9:00 p. m.</li>
 					<li>Sábados, de 8:00 a. m. a 2:00 p. m.</li>
 					<li>Domingos y feriados, cerrado.</li>
@@ -60,10 +67,10 @@
 			</section>
 		</main>
 
-		<footer>
-			<address>
+		<footer class="space-y-4 bg-selva px-6 py-8 text-sm text-crema">
+			<address class="not-italic">
 				Jr. Grau 345, Rioja, San Martín<br />
-				<a href="tel:+51942123456">Llamar al 942 123 456</a>
+				<a href="tel:+51942123456" class="font-semibold text-orquidea-claro underline underline-offset-4">Llamar al 942 123 456</a>
 			</address>
 			<p>Café Orquídea es un negocio ficticio, creado para el curso Diseño Web del IESTP John A. Mackay.</p>
 		</footer>
