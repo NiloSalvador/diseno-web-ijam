@@ -8,8 +8,9 @@ entorno. Al terminar tendrás
 - El sitio encendido en tu PC con el nombre del negocio.
 - El brief y el boceto del proyecto.
 
-> **Clase en vivo.** Esta semana la hacemos juntos en clase. Si no pudiste estar, sigue esta guía paso a paso, que está
-> escrita para que lo logres solo.
+> **Con vídeos.** En el aula tienes dos vídeos que recorren esta guía paso a paso: la lección 1.1 acompaña los pasos
+> 1 al 7 y la 1.2, los pasos 8 al 12. Míralos con tu proyecto abierto y páusalos cuando lo necesites. Plazo: hasta el
+> miércoles 7 de octubre a las 23:59.
 
 ## Antes de empezar
 
@@ -168,7 +169,7 @@ aparece tu `BRIEF.md` lleno y la foto del boceto.
 ## Entrega
 
 En el aula, en la tarea **Semana 1**, pega el enlace de tu repositorio (por ejemplo
-`https://github.com/juan-perez-dev/sitio-bodega-don-lucho`). Plazo, antes de la clase del jueves 8 de octubre.
+`https://github.com/juan-perez-dev/sitio-bodega-don-lucho`). Plazo hasta el miércoles 7 de octubre a las 23:59.
 
 ## Si algo falla
 

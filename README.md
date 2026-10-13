@@ -14,7 +14,7 @@ JavaScript, usando Astro.
 | Semana | Desde | Tema | Guía |
 | :-: | :-- | :-- | :-- |
 | 1 | 1 de octubre | Tu primer sitio con Astro | [Semana 1](guias/semana-1.md) |
-| 2 | 8 de octubre | HTML semántico y varias páginas | Próximamente |
+| 2 | 8 de octubre | HTML semántico y varias páginas | [Semana 2](guias/semana-2.md) |
 | 3 | 15 de octubre | El CSS que hay que entender y Tailwind | Próximamente |
 | 4 | 22 de octubre | Maquetación para celular y computadora (evaluación intermedia) | Próximamente |
 | 5 | 29 de octubre | Componentes, layouts y datos | Próximamente |
@@ -29,7 +29,7 @@ JavaScript, usando Astro.
 3. **Práctica en tu propio sitio.** El revisor (`npm run revisar -- N`, con el número de la semana) te dice qué
    falta antes de entregar.
 4. **Entrega** del enlace de tu repositorio en el aula y un **cuestionario** de cinco preguntas.
-5. **Dudas** por el chat del curso en el aula.
+5. **Dudas** por Google Chat, con el mensaje exacto de la terminal (o una captura) y el paso de la guía.
 
 ## Reglas del proyecto
 
