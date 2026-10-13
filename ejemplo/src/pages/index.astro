@@ -6,6 +6,7 @@ import fotoLocal from '../assets/local.jpg';
 import fotoCafe from '../assets/cafe-pasado.jpg';
 import fotoDesayuno from '../assets/desayuno.jpg';
 import fotoPostre from '../assets/postre.jpg';
+import '../styles/global.css';
 ---
 
 <html lang="es">
@@ -99,6 +100,11 @@ import fotoPostre from '../assets/postre.jpg';
 		line-height: 1.15;
 	}
 
+	h1 {
+		font-size: 2.75rem;
+		margin: 0 0 0.5rem;
+	}
+
 	/* Modelo de caja. El padding es el relleno entre el borde y el contenido. */
 	header {
 		background-color: #1f4d3a; /* verde selva */
@@ -111,11 +117,32 @@ import fotoPostre from '../assets/postre.jpg';
 		text-decoration: none;
 	}
 
+	nav ul {
+		list-style: none;
+		margin: 0.5rem 0 0;
+		padding: 0;
+	}
+
+	nav li {
+		display: inline-block;
+		margin-right: 1rem;
+	}
+
+	/* Más específica que «header a», así que la página actual se subraya. */
+	nav a[aria-current='page'] {
+		text-decoration: underline;
+		text-underline-offset: 0.3em;
+	}
+
 	/* El margin es el espacio de afuera. Con auto a los lados, la caja queda centrada. */
 	main {
 		max-width: 48rem;
 		margin: 0 auto;
 		padding: 2rem 1.5rem;
+	}
+
+	section {
+		margin-bottom: 3rem;
 	}
 
 	img {
@@ -139,5 +166,16 @@ import fotoPostre from '../assets/postre.jpg';
 		color: #fcf9f4;
 		font-weight: 600;
 		text-decoration: none;
+	}
+
+	footer {
+		background-color: #1f4d3a;
+		color: #f6efe4;
+		padding: 2rem 1.5rem;
+		font-size: 0.875rem;
+	}
+
+	footer a {
+		color: #edbcd5;
 	}
 </style>
