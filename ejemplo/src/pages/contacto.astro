@@ -1,5 +1,8 @@
 ---
-// Contacto: WhatsApp, teléfono, dirección con mapa, horario y preguntas frecuentes.
+// Contacto: WhatsApp, teléfono, dirección con mapa, horario, el formulario que arma el mensaje de
+// WhatsApp y preguntas frecuentes. Cada campo del formulario tiene su <label for="…"> con el mismo
+// texto que el id del campo: al pulsar el texto se marca el campo y el lector de pantalla dice qué
+// hay que escribir. El <script> del final arma el mensaje y abre WhatsApp.
 // El mapa es un iframe de Google Maps; su «title» dice qué hay dentro para quien usa lector de pantalla.
 // El molde de página pone el <head>, la cabecera, el pie, las fuentes y los estilos.
 import Layout from '../layouts/Layout.astro';
@@ -66,6 +69,34 @@ const preguntas = [
 			</section>
 		</div>
 
+		<section class="mt-16 max-w-3xl space-y-4 rounded-3xl bg-crema-claro p-6 shadow-lg shadow-cafe-oscuro/10 sm:p-8">
+			<h2 class="font-titulo text-3xl font-semibold text-cafe">Arma tu mensaje</h2>
+			<p>Llena tus datos y te abrimos WhatsApp con el mensaje escrito. Solo te queda pulsar Enviar.</p>
+			<form class="grid gap-5 sm:grid-cols-2">
+				<div class="flex flex-col gap-2">
+					<label for="nombre" class="font-semibold">Tu nombre</label>
+					<input id="nombre" name="nombre" type="text" autocomplete="name" required class="rounded-xl border-2 border-cafe/30 bg-crema px-4 py-3 focus:border-orquidea focus:outline-2 focus:outline-offset-2 focus:outline-orquidea" />
+				</div>
+				<div class="flex flex-col gap-2">
+					<label for="motivo" class="font-semibold">Qué necesitas</label>
+					<select id="motivo" name="motivo" required class="rounded-xl border-2 border-cafe/30 bg-crema px-4 py-3 focus:border-orquidea focus:outline-2 focus:outline-offset-2 focus:outline-orquidea">
+						<option value="">Elige una opción</option>
+						<option value="Quiero reservar una mesa">Reservar una mesa</option>
+						<option value="Quiero pedir para recoger">Pedir para recoger</option>
+					</select>
+				</div>
+				<div class="flex flex-col gap-2">
+					<label for="hora" class="font-semibold">A qué hora vienes</label>
+					<input id="hora" name="hora" type="time" required class="rounded-xl border-2 border-cafe/30 bg-crema px-4 py-3 focus:border-orquidea focus:outline-2 focus:outline-offset-2 focus:outline-orquidea" />
+				</div>
+				<div class="flex flex-col gap-2 sm:col-span-2">
+					<label for="mensaje" class="font-semibold">Tu pedido o cuántas personas vienen</label>
+					<textarea id="mensaje" name="mensaje" rows="4" required placeholder="Por ejemplo, dos capuchinos y una torta de chocolate" class="rounded-xl border-2 border-cafe/30 bg-crema px-4 py-3 focus:border-orquidea focus:outline-2 focus:outline-offset-2 focus:outline-orquidea"></textarea>
+				</div>
+				<button type="submit" class="justify-self-start rounded-full bg-orquidea px-6 py-3 font-semibold text-crema-claro hover:bg-orquidea-oscuro focus:outline-2 focus:outline-offset-2 focus:outline-orquidea">Enviar por WhatsApp</button>
+			</form>
+		</section>
+
 		<section class="mt-16 max-w-3xl space-y-4">
 			<h2 class="font-titulo text-3xl font-semibold text-cafe">Preguntas frecuentes</h2>
 			{preguntas.map((p) => (
@@ -77,3 +108,28 @@ const preguntas = [
 		</section>
 	</main>
 </Layout>
+
+<script>
+	// El formulario de «Arma tu mensaje». En esta página hay uno solo, así que basta con buscar <form>.
+	const formulario = document.querySelector('form');
+
+	// Al pulsar «Enviar por WhatsApp», el navegador revisa primero los campos con required. Si
+	// alguno está vacío, lo marca y no sigue. Si todo está lleno, avisa con el evento submit.
+	formulario.addEventListener('submit', (evento) => {
+		// Sin esta línea, el navegador mandaría el formulario y volvería a cargar la página.
+		evento.preventDefault();
+
+		// Lo que escribió la persona, buscado por el name de cada campo.
+		const datos = new FormData(formulario);
+		const texto = [
+			`Hola, Café Orquídea. Soy ${datos.get('nombre')}.`,
+			`${datos.get('motivo')} para las ${datos.get('hora')}.`,
+			datos.get('mensaje'),
+		].join('\n');
+
+		// encodeURIComponent cambia los espacios, las tildes, los saltos de línea, el & y el # por
+		// códigos que viajan seguros dentro de un enlace. Sin él, el mensaje llega cortado.
+		const enlace = `https://wa.me/51942123456?text=${encodeURIComponent(texto)}`;
+		window.open(enlace, '_blank');
+	});
+</script>
