@@ -1,8 +1,29 @@
 ---
-// Contacto: WhatsApp, teléfono, dirección con mapa y horario.
+// Contacto: WhatsApp, teléfono, dirección con mapa, horario y preguntas frecuentes.
 // El mapa es un iframe de Google Maps; su «title» dice qué hay dentro para quien usa lector de pantalla.
 // El molde de página pone el <head>, la cabecera, el pie, las fuentes y los estilos.
 import Layout from '../layouts/Layout.astro';
+
+// Las preguntas frecuentes. Cada una se pinta abajo con <details> y <summary>, y el navegador la
+// abre y la cierra solo al pulsar la pregunta, sin JavaScript.
+const preguntas = [
+	{
+		pregunta: '¿Puedo reservar una mesa?',
+		respuesta: 'Sí. Escríbenos por WhatsApp con el día, la hora y cuántas personas vienen, y te confirmamos la reserva.',
+	},
+	{
+		pregunta: '¿Puedo pedir para recoger?',
+		respuesta: 'Sí. Mándanos tu pedido por WhatsApp y dinos a qué hora pasas. Te lo tenemos listo en la barra.',
+	},
+	{
+		pregunta: '¿Hacen envíos a domicilio?',
+		respuesta: 'Por ahora no. Pide por WhatsApp y recoge tu pedido en Jr. Grau 345, a media cuadra de la Plaza de Armas.',
+	},
+	{
+		pregunta: '¿De dónde es el café que sirven?',
+		respuesta: 'De fincas de la provincia de Rioja, en el Alto Mayo. Lo preparamos pasado, espresso o con leche.',
+	},
+];
 ---
 
 <Layout title="Contacto | Café Orquídea" description="Escríbenos por WhatsApp, llámanos o visítanos en Jr. Grau 345, Rioja. Horario de atención y mapa para llegar a Café Orquídea." pagina="/contacto">
@@ -44,5 +65,15 @@ import Layout from '../layouts/Layout.astro';
 				></iframe>
 			</section>
 		</div>
+
+		<section class="mt-16 max-w-3xl space-y-4">
+			<h2 class="font-titulo text-3xl font-semibold text-cafe">Preguntas frecuentes</h2>
+			{preguntas.map((p) => (
+				<details class="rounded-2xl bg-crema-claro shadow-md shadow-cafe-oscuro/10">
+					<summary class="cursor-pointer p-5 font-semibold text-cafe marker:text-orquidea hover:text-orquidea-oscuro">{p.pregunta}</summary>
+					<p class="px-5 pb-5">{p.respuesta}</p>
+				</details>
+			))}
+		</section>
 	</main>
 </Layout>
