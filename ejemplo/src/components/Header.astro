@@ -6,14 +6,23 @@ const { pagina } = Astro.props;
 ---
 
 <header class="bg-selva">
-	<div class="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+	<div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-4 px-4 py-4 sm:px-6">
 		<a href="/" class="font-titulo text-2xl font-semibold text-crema">Café Orquídea</a>
-		<nav aria-label="Principal">
-			<ul class="flex flex-wrap gap-x-6 gap-y-2">
-				<li><a href="/" aria-current={pagina === '/' ? 'page' : undefined} class="font-semibold text-crema underline-offset-4 hover:text-orquidea-claro aria-[current=page]:underline">Inicio</a></li>
-				<li><a href="/carta" aria-current={pagina === '/carta' ? 'page' : undefined} class="font-semibold text-crema underline-offset-4 hover:text-orquidea-claro aria-[current=page]:underline">Carta</a></li>
-				<li><a href="/nosotros" aria-current={pagina === '/nosotros' ? 'page' : undefined} class="font-semibold text-crema underline-offset-4 hover:text-orquidea-claro aria-[current=page]:underline">Nosotros</a></li>
-				<li><a href="/contacto" aria-current={pagina === '/contacto' ? 'page' : undefined} class="font-semibold text-crema underline-offset-4 hover:text-orquidea-claro aria-[current=page]:underline">Contacto</a></li>
+		<button
+			id="boton-menu"
+			type="button"
+			aria-expanded="false"
+			aria-controls="menu-principal"
+			class="rounded-full border-2 border-crema px-5 py-2 font-semibold text-crema hover:bg-crema hover:text-selva md:hidden"
+		>
+			Menú
+		</button>
+		<nav aria-label="Principal" class="w-full md:w-auto">
+			<ul id="menu-principal" class="hidden pt-3 md:flex md:gap-6 md:pt-0">
+				<li><a href="/" aria-current={pagina === '/' ? 'page' : undefined} class="block py-3 font-semibold text-crema underline-offset-4 hover:text-orquidea-claro aria-[current=page]:underline md:py-0">Inicio</a></li>
+				<li><a href="/carta" aria-current={pagina === '/carta' ? 'page' : undefined} class="block py-3 font-semibold text-crema underline-offset-4 hover:text-orquidea-claro aria-[current=page]:underline md:py-0">Carta</a></li>
+				<li><a href="/nosotros" aria-current={pagina === '/nosotros' ? 'page' : undefined} class="block py-3 font-semibold text-crema underline-offset-4 hover:text-orquidea-claro aria-[current=page]:underline md:py-0">Nosotros</a></li>
+				<li><a href="/contacto" aria-current={pagina === '/contacto' ? 'page' : undefined} class="block py-3 font-semibold text-crema underline-offset-4 hover:text-orquidea-claro aria-[current=page]:underline md:py-0">Contacto</a></li>
 			</ul>
 		</nav>
 	</div>
