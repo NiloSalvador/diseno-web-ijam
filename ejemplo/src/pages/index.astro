@@ -6,106 +6,67 @@ import fotoLocal from '../assets/local.jpg';
 import fotoCafe from '../assets/cafe-pasado.jpg';
 import fotoDesayuno from '../assets/desayuno.jpg';
 import fotoPostre from '../assets/postre.jpg';
-// Las fuentes de la marca y los estilos de Tailwind. Por ahora se importan en cada página;
-// en la semana 5 irán una sola vez en el layout.
-import '@fontsource/fraunces/600.css';
-import '@fontsource/inter/400.css';
-import '@fontsource/inter/600.css';
-import '../styles/global.css';
+// El molde de página pone el <head>, la cabecera, el pie, las fuentes y los estilos.
+import Layout from '../layouts/Layout.astro';
+// La tarjeta de producto es un componente: se escribe una vez y se usa con distintos datos.
+import Tarjeta from '../components/Tarjeta.astro';
 ---
 
-<html lang="es">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Café Orquídea | Cafetería en Rioja</title>
-	</head>
-	<body class="bg-crema font-texto leading-relaxed text-cafe-oscuro antialiased">
-		<header class="bg-selva">
-			<div class="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
-				<a href="/" class="font-titulo text-2xl font-semibold text-crema">Café Orquídea</a>
-				<nav aria-label="Principal">
-					<ul class="flex flex-wrap gap-x-6 gap-y-2">
-						<li><a href="/" aria-current="page" class="font-semibold text-crema underline underline-offset-4">Inicio</a></li>
-						<li><a href="/carta" class="font-semibold text-crema hover:text-orquidea-claro">Carta</a></li>
-						<li><a href="/nosotros" class="font-semibold text-crema hover:text-orquidea-claro">Nosotros</a></li>
-						<li><a href="/contacto" class="font-semibold text-crema hover:text-orquidea-claro">Contacto</a></li>
-					</ul>
-				</nav>
+<Layout title="Café Orquídea | Cafetería en Rioja" description="Café de la provincia, desayunos de la selva y postres caseros a media cuadra de la Plaza de Armas de Rioja. Pide por WhatsApp y pasa a recoger." pagina="/">
+	<main>
+		<section class="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:px-6 md:grid-cols-2 md:items-center md:gap-10 md:py-16">
+			<div class="space-y-6">
+				<h1 class="font-titulo text-4xl font-semibold leading-tight text-cafe sm:text-5xl lg:text-6xl">Café Orquídea</h1>
+				<p class="text-lg sm:text-xl">Café de la provincia, desayunos y postres caseros en el centro de Rioja.</p>
+				<p><a href="https://wa.me/51942123456" class="inline-block rounded-full bg-orquidea px-6 py-3 font-semibold text-crema-claro hover:bg-orquidea-oscuro">Pide por WhatsApp</a></p>
 			</div>
-		</header>
+			<Image class="w-full rounded-3xl"
+				src={fotoLocal}
+				alt="Salón de Café Orquídea con mesas de madera, plantas y orquídeas junto a la ventana"
+				width={720}
+			/>
+		</section>
 
-		<main>
-			<section class="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:px-6 md:grid-cols-2 md:items-center md:gap-10 md:py-16">
-				<div class="space-y-6">
-					<h1 class="font-titulo text-4xl font-semibold leading-tight text-cafe sm:text-5xl lg:text-6xl">Café Orquídea</h1>
-					<p class="text-lg sm:text-xl">Café de la provincia, desayunos y postres caseros en el centro de Rioja.</p>
-					<p><a href="https://wa.me/51942123456" class="inline-block rounded-full bg-orquidea px-6 py-3 font-semibold text-crema-claro hover:bg-orquidea-oscuro">Pide por WhatsApp</a></p>
-				</div>
-				<Image class="w-full rounded-3xl"
-					src={fotoLocal}
-					alt="Salón de Café Orquídea con mesas de madera, plantas y orquídeas junto a la ventana"
-					width={720}
+		<section class="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
+			<div class="flex flex-wrap items-end justify-between gap-4">
+				<h2 class="font-titulo text-3xl font-semibold text-cafe md:text-4xl">Lo más pedido</h2>
+				<a href="/carta" class="font-semibold text-orquidea-oscuro underline underline-offset-4 hover:text-orquidea">Ver la carta completa</a>
+			</div>
+			<div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+				<Tarjeta
+					nombre="Café pasado"
+					descripcion="Café de altura del Alto Mayo, pasado en filtro de tela al momento."
+					precio="S/ 5.00"
+					foto={fotoCafe}
+					alt="Taza de café pasado con granos tostados sobre una mesa de madera"
 				/>
-			</section>
-
-			<section class="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
-				<div class="flex flex-wrap items-end justify-between gap-4">
-					<h2 class="font-titulo text-3xl font-semibold text-cafe md:text-4xl">Lo más pedido</h2>
-					<a href="/carta" class="font-semibold text-orquidea-oscuro underline underline-offset-4 hover:text-orquidea">Ver la carta completa</a>
-				</div>
-				<div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-					<article class="flex flex-col overflow-hidden rounded-3xl bg-crema-claro shadow-lg shadow-cafe-oscuro/10">
-						<Image class="aspect-4/3 w-full object-cover" src={fotoCafe} alt="Taza de café pasado con granos tostados sobre una mesa de madera" width={640} />
-						<div class="flex flex-1 flex-col gap-2 p-6">
-							<h3 class="font-titulo text-2xl font-semibold text-cafe">Café pasado</h3>
-							<p>Café de altura del Alto Mayo, pasado en filtro de tela al momento.</p>
-							<p class="mt-auto pt-2 text-xl font-semibold text-selva">S/ 5.00</p>
-						</div>
-					</article>
-					<article class="flex flex-col overflow-hidden rounded-3xl bg-crema-claro shadow-lg shadow-cafe-oscuro/10">
-						<Image class="aspect-4/3 w-full object-cover" src={fotoDesayuno} alt="Plato de tacacho con cecina, salsa criolla y una taza de café" width={640} />
-						<div class="flex flex-1 flex-col gap-2 p-6">
-							<h3 class="font-titulo text-2xl font-semibold text-cafe">Tacacho con cecina</h3>
-							<p>El desayuno de la selva, con plátano verde asado y cecina ahumada.</p>
-							<p class="mt-auto pt-2 text-xl font-semibold text-selva">S/ 18.00</p>
-						</div>
-					</article>
-					<article class="flex flex-col overflow-hidden rounded-3xl bg-crema-claro shadow-lg shadow-cafe-oscuro/10">
-						<Image class="aspect-4/3 w-full object-cover" src={fotoPostre} alt="Tajada de torta de chocolate con cobertura de chocolate en un plato blanco" width={640} />
-						<div class="flex flex-1 flex-col gap-2 p-6">
-							<h3 class="font-titulo text-2xl font-semibold text-cafe">Torta de chocolate</h3>
-							<p>Hecha en casa cada mañana con cacao de San Martín.</p>
-							<p class="mt-auto pt-2 text-xl font-semibold text-selva">S/ 8.00</p>
-						</div>
-					</article>
-				</div>
-			</section>
-
-			<div class="mx-auto grid max-w-6xl gap-6 px-4 pb-16 sm:px-6 md:grid-cols-2">
-				<section class="space-y-3 rounded-3xl bg-crema-claro p-6 sm:p-8 shadow-lg shadow-cafe-oscuro/10">
-					<h2 class="font-titulo text-3xl font-semibold text-cafe">Horario</h2>
-					<p>De lunes a viernes, de 7:00 a. m. a 9:00 p. m. Los sábados, de 8:00 a. m. a 2:00 p. m.</p>
-				</section>
-				<section class="space-y-3 rounded-3xl bg-selva p-6 sm:p-8 text-crema">
-					<h2 class="font-titulo text-3xl font-semibold text-crema">Dónde estamos</h2>
-					<p>Jr. Grau 345, a media cuadra de la Plaza de Armas de Rioja.</p>
-					<p><a href="/contacto" class="font-semibold text-orquidea-claro underline underline-offset-4">Ver el mapa</a></p>
-				</section>
+				<Tarjeta
+					nombre="Tacacho con cecina"
+					descripcion="El desayuno de la selva, con plátano verde asado y cecina ahumada."
+					precio="S/ 18.00"
+					foto={fotoDesayuno}
+					alt="Plato de tacacho con cecina, salsa criolla y una taza de café"
+				/>
+				<Tarjeta
+					nombre="Torta de chocolate"
+					descripcion="Hecha en casa cada mañana con cacao de San Martín."
+					precio="S/ 8.00"
+					foto={fotoPostre}
+					alt="Tajada de torta de chocolate con cobertura de chocolate en un plato blanco"
+				/>
 			</div>
-		</main>
+		</section>
 
-		<footer class="bg-selva text-sm text-crema">
-			<div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-8 sm:px-6 md:flex-row md:items-start md:justify-between md:gap-8">
-				<address class="not-italic">
-					Jr. Grau 345, Rioja, San Martín<br />
-					<a href="tel:+51942123456" class="font-semibold text-orquidea-claro underline underline-offset-4">Llamar al 942 123 456</a>
-				</address>
-				<p class="max-w-sm">Café Orquídea es un negocio ficticio, creado para el curso Diseño Web del IESTP John A. Mackay.</p>
-			</div>
-		</footer>
-	</body>
-</html>
+		<div class="mx-auto grid max-w-6xl gap-6 px-4 pb-16 sm:px-6 md:grid-cols-2">
+			<section class="space-y-3 rounded-3xl bg-crema-claro p-6 sm:p-8 shadow-lg shadow-cafe-oscuro/10">
+				<h2 class="font-titulo text-3xl font-semibold text-cafe">Horario</h2>
+				<p>De lunes a viernes, de 7:00 a. m. a 9:00 p. m. Los sábados, de 8:00 a. m. a 2:00 p. m.</p>
+			</section>
+			<section class="space-y-3 rounded-3xl bg-selva p-6 sm:p-8 text-crema">
+				<h2 class="font-titulo text-3xl font-semibold text-crema">Dónde estamos</h2>
+				<p>Jr. Grau 345, a media cuadra de la Plaza de Armas de Rioja.</p>
+				<p><a href="/contacto" class="font-semibold text-orquidea-claro underline underline-offset-4">Ver el mapa</a></p>
+			</section>
+		</div>
+	</main>
+</Layout>

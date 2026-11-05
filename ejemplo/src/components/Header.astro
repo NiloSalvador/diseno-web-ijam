@@ -1,0 +1,20 @@
+---
+// La cabecera de todas las páginas. Recibe por props «pagina», la dirección de la página que se
+// está viendo, y marca ese enlace del menú con aria-current="page". La clase
+// aria-[current=page]:underline subraya solo el enlace que tiene esa marca.
+const { pagina } = Astro.props;
+---
+
+<header class="bg-selva">
+	<div class="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+		<a href="/" class="font-titulo text-2xl font-semibold text-crema">Café Orquídea</a>
+		<nav aria-label="Principal">
+			<ul class="flex flex-wrap gap-x-6 gap-y-2">
+				<li><a href="/" aria-current={pagina === '/' ? 'page' : undefined} class="font-semibold text-crema underline-offset-4 hover:text-orquidea-claro aria-[current=page]:underline">Inicio</a></li>
+				<li><a href="/carta" aria-current={pagina === '/carta' ? 'page' : undefined} class="font-semibold text-crema underline-offset-4 hover:text-orquidea-claro aria-[current=page]:underline">Carta</a></li>
+				<li><a href="/nosotros" aria-current={pagina === '/nosotros' ? 'page' : undefined} class="font-semibold text-crema underline-offset-4 hover:text-orquidea-claro aria-[current=page]:underline">Nosotros</a></li>
+				<li><a href="/contacto" aria-current={pagina === '/contacto' ? 'page' : undefined} class="font-semibold text-crema underline-offset-4 hover:text-orquidea-claro aria-[current=page]:underline">Contacto</a></li>
+			</ul>
+		</nav>
+	</div>
+</header>

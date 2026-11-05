@@ -1,151 +1,113 @@
 ---
 // Carta de Café Orquídea. Cada categoría es una tabla: los encabezados van en <th>
 // para que el lector de pantalla diga «Producto» y «Precio» al leer cada fila.
-// Las fuentes de la marca y los estilos de Tailwind. Por ahora se importan en cada página;
-// en la semana 5 irán una sola vez en el layout.
-import '@fontsource/fraunces/600.css';
-import '@fontsource/inter/400.css';
-import '@fontsource/inter/600.css';
-import '../styles/global.css';
+// El molde de página pone el <head>, la cabecera, el pie, las fuentes y los estilos.
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="es">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Carta | Café Orquídea</title>
-	</head>
-	<body class="bg-crema font-texto leading-relaxed text-cafe-oscuro antialiased">
-		<header class="bg-selva">
-			<div class="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
-				<a href="/" class="font-titulo text-2xl font-semibold text-crema">Café Orquídea</a>
-				<nav aria-label="Principal">
-					<ul class="flex flex-wrap gap-x-6 gap-y-2">
-						<li><a href="/" class="font-semibold text-crema hover:text-orquidea-claro">Inicio</a></li>
-						<li><a href="/carta" aria-current="page" class="font-semibold text-crema underline underline-offset-4">Carta</a></li>
-						<li><a href="/nosotros" class="font-semibold text-crema hover:text-orquidea-claro">Nosotros</a></li>
-						<li><a href="/contacto" class="font-semibold text-crema hover:text-orquidea-claro">Contacto</a></li>
-					</ul>
-				</nav>
+<Layout title="Carta | Café Orquídea" description="La carta de Café Orquídea con precios en soles. Café pasado, capuchino, tacacho con cecina, tamales, tortas y alfajores hechos en casa." pagina="/carta">
+	<main class="mx-auto max-w-6xl px-4 py-10 sm:px-6 md:py-16">
+		<h1 class="font-titulo text-4xl font-semibold leading-tight text-cafe sm:text-5xl lg:text-6xl">Nuestra carta</h1>
+		<p class="mt-4 max-w-2xl text-lg">Precios en soles, con IGV incluido. Para pedir y recoger, escríbenos por WhatsApp.</p>
+
+		<div class="mt-10 grid items-start gap-6 md:grid-cols-2 lg:grid-cols-3">
+			<article class="rounded-3xl bg-crema-claro p-6 shadow-lg shadow-cafe-oscuro/10">
+				<table class="w-full">
+					<caption class="mb-3 text-left font-titulo text-2xl font-semibold text-cafe">Bebidas</caption>
+					<thead>
+						<tr>
+							<th scope="col" class="border-b-2 border-cafe py-2 text-left">Producto</th>
+							<th scope="col" class="border-b-2 border-cafe py-2 text-right">Precio</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="border-b border-cafe/20 py-2 pr-4">Café pasado</td>
+							<td class="border-b border-cafe/20 py-2 text-right whitespace-nowrap">S/ 5.00</td>
+						</tr>
+						<tr>
+							<td class="border-b border-cafe/20 py-2 pr-4">Café con leche</td>
+							<td class="border-b border-cafe/20 py-2 text-right whitespace-nowrap">S/ 6.00</td>
+						</tr>
+						<tr>
+							<td class="border-b border-cafe/20 py-2 pr-4">Capuchino</td>
+							<td class="border-b border-cafe/20 py-2 text-right whitespace-nowrap">S/ 8.00</td>
+						</tr>
+						<tr>
+							<td class="border-b border-cafe/20 py-2 pr-4">Chocolate caliente de cacao</td>
+							<td class="border-b border-cafe/20 py-2 text-right whitespace-nowrap">S/ 7.00</td>
+						</tr>
+						<tr>
+							<td class="border-b border-cafe/20 py-2 pr-4">Jugo de piña</td>
+							<td class="border-b border-cafe/20 py-2 text-right whitespace-nowrap">S/ 7.00</td>
+						</tr>
+					</tbody>
+				</table>
+			</article>
+
+			<article class="rounded-3xl bg-crema-claro p-6 shadow-lg shadow-cafe-oscuro/10">
+				<table class="w-full">
+					<caption class="mb-3 text-left font-titulo text-2xl font-semibold text-cafe">Desayunos</caption>
+					<thead>
+						<tr>
+							<th scope="col" class="border-b-2 border-cafe py-2 text-left">Producto</th>
+							<th scope="col" class="border-b-2 border-cafe py-2 text-right">Precio</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="border-b border-cafe/20 py-2 pr-4">Tacacho con cecina</td>
+							<td class="border-b border-cafe/20 py-2 text-right whitespace-nowrap">S/ 18.00</td>
+						</tr>
+						<tr>
+							<td class="border-b border-cafe/20 py-2 pr-4">Tamal con café pasado</td>
+							<td class="border-b border-cafe/20 py-2 text-right whitespace-nowrap">S/ 10.00</td>
+						</tr>
+						<tr>
+							<td class="border-b border-cafe/20 py-2 pr-4">Pan con chicharrón</td>
+							<td class="border-b border-cafe/20 py-2 text-right whitespace-nowrap">S/ 9.00</td>
+						</tr>
+						<tr>
+							<td class="border-b border-cafe/20 py-2 pr-4">Pan con palta y huevo</td>
+							<td class="border-b border-cafe/20 py-2 text-right whitespace-nowrap">S/ 8.00</td>
+						</tr>
+					</tbody>
+				</table>
+			</article>
+
+			<article class="rounded-3xl bg-crema-claro p-6 shadow-lg shadow-cafe-oscuro/10">
+				<table class="w-full">
+					<caption class="mb-3 text-left font-titulo text-2xl font-semibold text-cafe">Postres</caption>
+					<thead>
+						<tr>
+							<th scope="col" class="border-b-2 border-cafe py-2 text-left">Producto</th>
+							<th scope="col" class="border-b-2 border-cafe py-2 text-right">Precio</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="border-b border-cafe/20 py-2 pr-4">Torta de chocolate</td>
+							<td class="border-b border-cafe/20 py-2 text-right whitespace-nowrap">S/ 8.00</td>
+						</tr>
+						<tr>
+							<td class="border-b border-cafe/20 py-2 pr-4">Tres leches</td>
+							<td class="border-b border-cafe/20 py-2 text-right whitespace-nowrap">S/ 8.00</td>
+						</tr>
+						<tr>
+							<td class="border-b border-cafe/20 py-2 pr-4">Alfajores de maicena (tres unidades)</td>
+							<td class="border-b border-cafe/20 py-2 text-right whitespace-nowrap">S/ 5.00</td>
+						</tr>
+					</tbody>
+				</table>
+			</article>
+		</div>
+
+		<div class="mt-12 flex flex-col items-start gap-6 rounded-3xl bg-selva p-6 text-crema sm:p-8 md:flex-row md:items-center md:justify-between">
+			<div class="space-y-2">
+				<h2 class="font-titulo text-3xl font-semibold text-crema">¿Ya elegiste?</h2>
+				<p>Escríbenos qué vas a llevar y a qué hora pasas. Lo tenemos listo para que lo recojas.</p>
 			</div>
-		</header>
-
-		<main class="mx-auto max-w-6xl px-4 py-10 sm:px-6 md:py-16">
-			<h1 class="font-titulo text-4xl font-semibold leading-tight text-cafe sm:text-5xl lg:text-6xl">Nuestra carta</h1>
-			<p class="mt-4 max-w-2xl text-lg">Precios en soles, con IGV incluido. Para pedir y recoger, escríbenos por WhatsApp.</p>
-
-			<div class="mt-10 grid items-start gap-6 md:grid-cols-2 lg:grid-cols-3">
-				<article class="rounded-3xl bg-crema-claro p-6 shadow-lg shadow-cafe-oscuro/10">
-					<table class="w-full">
-						<caption class="mb-3 text-left font-titulo text-2xl font-semibold text-cafe">Bebidas</caption>
-						<thead>
-							<tr>
-								<th scope="col" class="border-b-2 border-cafe py-2 text-left">Producto</th>
-								<th scope="col" class="border-b-2 border-cafe py-2 text-right">Precio</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td class="border-b border-cafe/20 py-2 pr-4">Café pasado</td>
-								<td class="border-b border-cafe/20 py-2 text-right whitespace-nowrap">S/ 5.00</td>
-							</tr>
-							<tr>
-								<td class="border-b border-cafe/20 py-2 pr-4">Café con leche</td>
-								<td class="border-b border-cafe/20 py-2 text-right whitespace-nowrap">S/ 6.00</td>
-							</tr>
-							<tr>
-								<td class="border-b border-cafe/20 py-2 pr-4">Capuchino</td>
-								<td class="border-b border-cafe/20 py-2 text-right whitespace-nowrap">S/ 8.00</td>
-							</tr>
-							<tr>
-								<td class="border-b border-cafe/20 py-2 pr-4">Chocolate caliente de cacao</td>
-								<td class="border-b border-cafe/20 py-2 text-right whitespace-nowrap">S/ 7.00</td>
-							</tr>
-							<tr>
-								<td class="border-b border-cafe/20 py-2 pr-4">Jugo de piña</td>
-								<td class="border-b border-cafe/20 py-2 text-right whitespace-nowrap">S/ 7.00</td>
-							</tr>
-						</tbody>
-					</table>
-				</article>
-
-				<article class="rounded-3xl bg-crema-claro p-6 shadow-lg shadow-cafe-oscuro/10">
-					<table class="w-full">
-						<caption class="mb-3 text-left font-titulo text-2xl font-semibold text-cafe">Desayunos</caption>
-						<thead>
-							<tr>
-								<th scope="col" class="border-b-2 border-cafe py-2 text-left">Producto</th>
-								<th scope="col" class="border-b-2 border-cafe py-2 text-right">Precio</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td class="border-b border-cafe/20 py-2 pr-4">Tacacho con cecina</td>
-								<td class="border-b border-cafe/20 py-2 text-right whitespace-nowrap">S/ 18.00</td>
-							</tr>
-							<tr>
-								<td class="border-b border-cafe/20 py-2 pr-4">Tamal con café pasado</td>
-								<td class="border-b border-cafe/20 py-2 text-right whitespace-nowrap">S/ 10.00</td>
-							</tr>
-							<tr>
-								<td class="border-b border-cafe/20 py-2 pr-4">Pan con chicharrón</td>
-								<td class="border-b border-cafe/20 py-2 text-right whitespace-nowrap">S/ 9.00</td>
-							</tr>
-							<tr>
-								<td class="border-b border-cafe/20 py-2 pr-4">Pan con palta y huevo</td>
-								<td class="border-b border-cafe/20 py-2 text-right whitespace-nowrap">S/ 8.00</td>
-							</tr>
-						</tbody>
-					</table>
-				</article>
-
-				<article class="rounded-3xl bg-crema-claro p-6 shadow-lg shadow-cafe-oscuro/10">
-					<table class="w-full">
-						<caption class="mb-3 text-left font-titulo text-2xl font-semibold text-cafe">Postres</caption>
-						<thead>
-							<tr>
-								<th scope="col" class="border-b-2 border-cafe py-2 text-left">Producto</th>
-								<th scope="col" class="border-b-2 border-cafe py-2 text-right">Precio</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td class="border-b border-cafe/20 py-2 pr-4">Torta de chocolate</td>
-								<td class="border-b border-cafe/20 py-2 text-right whitespace-nowrap">S/ 8.00</td>
-							</tr>
-							<tr>
-								<td class="border-b border-cafe/20 py-2 pr-4">Tres leches</td>
-								<td class="border-b border-cafe/20 py-2 text-right whitespace-nowrap">S/ 8.00</td>
-							</tr>
-							<tr>
-								<td class="border-b border-cafe/20 py-2 pr-4">Alfajores de maicena (tres unidades)</td>
-								<td class="border-b border-cafe/20 py-2 text-right whitespace-nowrap">S/ 5.00</td>
-							</tr>
-						</tbody>
-					</table>
-				</article>
-			</div>
-
-			<div class="mt-12 flex flex-col items-start gap-6 rounded-3xl bg-selva p-6 text-crema sm:p-8 md:flex-row md:items-center md:justify-between">
-				<div class="space-y-2">
-					<h2 class="font-titulo text-3xl font-semibold text-crema">¿Ya elegiste?</h2>
-					<p>Escríbenos qué vas a llevar y a qué hora pasas. Lo tenemos listo para que lo recojas.</p>
-				</div>
-				<a href="https://wa.me/51942123456" class="inline-block shrink-0 rounded-full bg-orquidea px-6 py-3 font-semibold text-crema-claro hover:bg-orquidea-oscuro">Pide por WhatsApp</a>
-			</div>
-		</main>
-
-		<footer class="bg-selva text-sm text-crema">
-			<div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-8 sm:px-6 md:flex-row md:items-start md:justify-between md:gap-8">
-				<address class="not-italic">
-					Jr. Grau 345, Rioja, San Martín<br />
-					<a href="tel:+51942123456" class="font-semibold text-orquidea-claro underline underline-offset-4">Llamar al 942 123 456</a>
-				</address>
-				<p class="max-w-sm">Café Orquídea es un negocio ficticio, creado para el curso Diseño Web del IESTP John A. Mackay.</p>
-			</div>
-		</footer>
-	</body>
-</html>
+			<a href="https://wa.me/51942123456" class="inline-block shrink-0 rounded-full bg-orquidea px-6 py-3 font-semibold text-crema-claro hover:bg-orquidea-oscuro">Pide por WhatsApp</a>
+		</div>
+	</main>
+</Layout>
