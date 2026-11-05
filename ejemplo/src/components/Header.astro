@@ -45,4 +45,12 @@ const { pagina } = Astro.props;
 		menu.classList.toggle('hidden');
 	});
 
+	// Con el menú abierto, la tecla Escape lo cierra y devuelve el foco al botón.
+	document.addEventListener('keydown', (evento) => {
+		if (evento.key === 'Escape' && boton.getAttribute('aria-expanded') === 'true') {
+			boton.setAttribute('aria-expanded', 'false');
+			menu.classList.add('hidden');
+			boton.focus();
+		}
+	});
 </script>
