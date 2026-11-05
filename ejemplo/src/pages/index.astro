@@ -32,7 +32,7 @@ import { productos, soles } from '../data/carta.js';
 				<a href="/carta" class="font-semibold text-orquidea-oscuro underline underline-offset-4 hover:text-orquidea">Ver la carta completa</a>
 			</div>
 			<div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-				{productos.map((producto) => (
+				{productos.map((producto) => {
 					<Tarjeta
 						nombre={producto.nombre}
 						descripcion={producto.descripcion}
@@ -40,7 +40,7 @@ import { productos, soles } from '../data/carta.js';
 						foto={producto.foto}
 						alt={producto.alt}
 					/>
-				))}
+				})}
 			</div>
 		</section>
 
