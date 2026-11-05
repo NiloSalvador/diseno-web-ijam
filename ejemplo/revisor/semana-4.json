@@ -1,0 +1,168 @@
+{
+  "semana": 4,
+  "titulo": "Maquetación para celular y computadora",
+  "revisorMinimo": 4,
+  "paginasMinimas": 4,
+  "criterios": [
+    {
+      "tipo": "compila",
+      "puntos": 6,
+      "nombre": "El sitio compila"
+    },
+    {
+      "tipo": "meta-viewport",
+      "puntos": 6,
+      "nombre": "Cada página se ajusta al ancho del celular con su meta viewport"
+    },
+    {
+      "tipo": "prohibido-en-src",
+      "puntos": 10,
+      "nombre": "Nada tiene un ancho fijo que se salga de la pantalla del celular",
+      "extensiones": [".astro", ".html", ".md", ".mdx", ".js", ".jsx", ".ts", ".tsx", ".css"],
+      "patron": "(?<![\\w:/\\[-])(?:min-)?w-(?:\\[(?:(?:[4-9]\\d{2}|[1-9]\\d{3,})(?:\\.\\d+)?px|(?:2[5-9]|[3-9]\\d|[1-9]\\d{2,})(?:\\.\\d+)?rem)\\]|[1-9]\\d{2,}(?![\\w./-]))|(?<![(\\w-]\\s*)(?:min-)?width\\s*:\\s*(?:[4-9]\\d{2}|[1-9]\\d{3,})(?:\\.\\d+)?px",
+      "mensaje": "{texto} fija un ancho que no cabe en la pantalla de un celular de 375 px.",
+      "consejo": "Cambia ese ancho fijo por un tope (max-w-), así la caja se achica cuando la pantalla es angosta."
+    },
+    {
+      "tipo": "clases",
+      "puntos": 6,
+      "nombre": "Pones cosas en fila con Flexbox (flex con justify-, items- o gap-)",
+      "todas": ["^(?:[\\w-]+:)*(?:inline-)?flex$", "^(?:[\\w-]+:)*(?:justify-|items-|gap-)"],
+      "falta": "Ningún elemento usa flex junto con justify-, items- o gap-. La barra de navegación es un buen lugar para empezar."
+    },
+    {
+      "tipo": "clases",
+      "puntos": 8,
+      "nombre": "Acomodas en columnas con Grid (grid y grid-cols-)",
+      "todas": ["^(?:[\\w-]+:)*grid$", "^(?:[\\w-]+:)*grid-cols-"],
+      "falta": "Ningún elemento usa grid con sus columnas (grid-cols-) en la misma etiqueta. Úsalo en las tarjetas o en una galería."
+    },
+    {
+      "tipo": "clases",
+      "puntos": 10,
+      "nombre": "En cada página el contenido cambia de forma en pantallas grandes (sm:, md:, lg:)",
+      "todas": ["^(?:sm|md|lg|xl|2xl):(?:grid-cols-|col-span-|flex-row|flex-col|basis-|order-|w-|hidden$|block$|flex$|grid$|inline-flex$)"],
+      "porPagina": true,
+      "dentro": "main",
+      "falta": "En {pagina} el contenido principal se acomoda igual en el celular y en la computadora. Empieza con una columna y cambia a columnas o a fila desde un ancho mayor con sm:, md: o lg:."
+    },
+    {
+      "tipo": "capturas",
+      "puntos": 10,
+      "nombre": "Hay capturas de cada página a 375 y 1280 px en la carpeta capturas",
+      "carpeta": "capturas",
+      "anchos": [375, 1280]
+    },
+    {
+      "tipo": "tailwind-instalado",
+      "puntos": 5,
+      "nombre": "Tailwind está instalado y llega a las cuatro páginas"
+    },
+    {
+      "tipo": "tema-tailwind",
+      "puntos": 5,
+      "nombre": "Los colores y la fuente de tu marca están en @theme y se usan",
+      "minimoColores": 3
+    },
+    {
+      "tipo": "clases-generadas",
+      "puntos": 3,
+      "nombre": "Todas las clases con los nombres de tu marca tienen estilos"
+    },
+    {
+      "tipo": "prohibido-en-src",
+      "puntos": 3,
+      "nombre": "Ninguna etiqueta lleva estilos en línea",
+      "extensiones": [".astro", ".html", ".md", ".mdx", ".jsx", ".tsx"],
+      "patron": "\\sstyle\\s*=\\s*(?:\"[^\"]*\"|'[^']*'|\\{[^}]*\\}+)",
+      "mensaje": "la etiqueta lleva {texto}.",
+      "consejo": "Pasa ese estilo a clases de Tailwind y borra el atributo style."
+    },
+    {
+      "tipo": "prohibido-en-src",
+      "puntos": 3,
+      "nombre": "Ningún color suelto como bg-[#…], todos salen de @theme",
+      "extensiones": [".astro", ".html", ".md", ".mdx", ".js", ".jsx", ".ts", ".tsx", ".css"],
+      "patron": "[\\w:/-]*-\\[(?:#|rgba?\\(|hsla?\\(|oklch\\(|oklab\\()[^\\]\\s]*\\]",
+      "mensaje": "la clase {texto} pone un color suelto.",
+      "consejo": "Escribe ese color en @theme con un nombre (por ejemplo --color-selva) y usa la clase con ese nombre (bg-selva)."
+    },
+    {
+      "tipo": "paginas",
+      "puntos": 3,
+      "nombre": "Siguen las cuatro páginas con su contenido",
+      "minimo": 4,
+      "etiqueta": "main",
+      "minimoPalabras": 25
+    },
+    {
+      "tipo": "atributo-html",
+      "puntos": 2,
+      "nombre": "Cada página dice que está en español",
+      "atributo": "lang",
+      "valor": "es"
+    },
+    {
+      "tipo": "etiquetas-por-pagina",
+      "puntos": 3,
+      "nombre": "Cada página tiene cabecera, menú, contenido principal y pie",
+      "etiquetas": ["header", "nav", "main", "footer"]
+    },
+    {
+      "tipo": "una-por-pagina",
+      "puntos": 3,
+      "nombre": "Cada página tiene un solo encabezado principal",
+      "etiqueta": "h1",
+      "distintoDe": ["Nombre de tu negocio", "Nombre del negocio", "Astro"]
+    },
+    {
+      "tipo": "titulos-unicos",
+      "puntos": 2,
+      "nombre": "Cada página tiene su propio título de pestaña",
+      "distintoDe": ["Nombre de tu negocio", "Nombre del negocio", "Astro"]
+    },
+    {
+      "tipo": "enlaces-internos",
+      "puntos": 3,
+      "nombre": "El menú lleva a todas las páginas y ningún enlace está roto"
+    },
+    {
+      "tipo": "enlaces-con",
+      "puntos": 2,
+      "nombre": "Hay un enlace para llamar y otro de WhatsApp",
+      "enlaces": [
+        { "nombre": "para llamar", "prefijos": ["tel:"] },
+        { "nombre": "de WhatsApp", "prefijos": ["https://wa.me/", "https://api.whatsapp.com/"] }
+      ]
+    },
+    {
+      "tipo": "imagenes-alt",
+      "puntos": 2,
+      "nombre": "Hay al menos tres imágenes y cada una dice qué muestra",
+      "minimo": 3,
+      "genericas": ["imagen", "foto", "image", "img", "picture", "logo", "una foto", "una imagen"]
+    },
+    {
+      "tipo": "imagenes-cargan",
+      "puntos": 2,
+      "nombre": "Todas las imágenes cargan"
+    },
+    {
+      "tipo": "imagenes-optimizadas",
+      "puntos": 1,
+      "nombre": "Las fotos pasan por <Image /> de Astro",
+      "minimo": 1
+    },
+    {
+      "tipo": "tabla-con-th",
+      "puntos": 1,
+      "nombre": "Hay una tabla con encabezados"
+    },
+    {
+      "tipo": "iframe-con-title",
+      "puntos": 1,
+      "nombre": "El mapa tiene un título que dice qué muestra",
+      "minimo": 1
+    }
+  ]
+}
