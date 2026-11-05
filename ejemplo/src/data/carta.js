@@ -32,3 +32,9 @@ export const productos = [
 		alt: 'Tajada de torta de chocolate con cobertura de chocolate en un plato blanco',
 	},
 ];
+
+// Una función recibe un dato y devuelve otro. Esta recibe un precio, como 5, y devuelve cómo se
+// escribe en soles, «S/ 5.00». toFixed(2) escribe el número con dos decimales.
+export function soles(precio) {
+	return 'S/ ' + precio.toFixed(2);
+}
