@@ -20,7 +20,7 @@ guía se publica apenas está lista y queda abierta hasta el cierre. Para llegar
 | 2 | HTML semántico y varias páginas | Cuanto antes, si te falta | [Semana 2](guias/semana-2.md) |
 | 3 | El CSS que hay que entender y Tailwind | Cuanto antes, si te falta | [Semana 3](guias/semana-3.md) |
 | 4 | Maquetación para celular y computadora (evaluación intermedia) | Domingo 15 de noviembre | [Semana 4](guias/semana-4.md) |
-| 5 | Componentes, molde de página y datos | Domingo 15 de noviembre | Próximamente |
+| 5 | Componentes, molde de página y datos | Domingo 15 de noviembre | [Semana 5](guias/semana-5.md) |
 | 6 | JavaScript en el navegador | Domingo 22 de noviembre | Próximamente |
 | 7 | Formularios, SEO y rendimiento | Domingo 22 de noviembre | Próximamente |
 | 8 | Publicar y sustentar (evaluación final) | Domingo 29 de noviembre, 23:59 | Próximamente |
