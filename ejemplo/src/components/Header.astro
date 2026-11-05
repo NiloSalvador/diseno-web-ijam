@@ -14,14 +14,14 @@ const { pagina } = Astro.props;
 		<button
 			id="boton-menu"
 			type="button"
-			aria-expanded="false"
+			aria-expanded="true"
 			aria-controls="menu-principal"
 			class="rounded-full border-2 border-crema px-5 py-2 font-semibold text-crema hover:bg-crema hover:text-selva md:hidden"
 		>
 			Menú
 		</button>
 		<nav aria-label="Principal" class="w-full md:w-auto">
-			<ul id="menu-principal" class="hidden pt-3 md:flex md:gap-6 md:pt-0">
+			<ul id="menu-principal" class="pt-3 md:flex md:gap-6 md:pt-0">
 				<li><a href="/" aria-current={pagina === '/' ? 'page' : undefined} class="block py-3 font-semibold text-crema underline-offset-4 hover:text-orquidea-claro aria-[current=page]:underline md:py-0">Inicio</a></li>
 				<li><a href="/carta" aria-current={pagina === '/carta' ? 'page' : undefined} class="block py-3 font-semibold text-crema underline-offset-4 hover:text-orquidea-claro aria-[current=page]:underline md:py-0">Carta</a></li>
 				<li><a href="/nosotros" aria-current={pagina === '/nosotros' ? 'page' : undefined} class="block py-3 font-semibold text-crema underline-offset-4 hover:text-orquidea-claro aria-[current=page]:underline md:py-0">Nosotros</a></li>
