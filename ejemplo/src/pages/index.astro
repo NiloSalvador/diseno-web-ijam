@@ -38,16 +38,18 @@ import '../styles/global.css';
 			</div>
 		</header>
 
-		<main class="mx-auto max-w-3xl px-6 py-10">
-			<section class="mb-12 space-y-4">
-				<h1 class="font-titulo text-5xl font-semibold leading-tight text-cafe">Café Orquídea</h1>
-				<p class="text-lg">Café de la provincia, desayunos y postres caseros en el centro de Rioja.</p>
-				<Image class="rounded-2xl"
+		<main>
+			<section class="mx-auto grid max-w-6xl grid-cols-2 items-center gap-10 px-6 py-16">
+				<div class="space-y-6">
+					<h1 class="font-titulo text-6xl font-semibold leading-tight text-cafe">Café Orquídea</h1>
+					<p class="text-xl">Café de la provincia, desayunos y postres caseros en el centro de Rioja.</p>
+					<p><a href="https://wa.me/51942123456" class="inline-block rounded-full bg-orquidea px-6 py-3 font-semibold text-crema-claro hover:bg-orquidea-oscuro">Pide por WhatsApp</a></p>
+				</div>
+				<Image class="w-full rounded-3xl"
 					src={fotoLocal}
 					alt="Salón de Café Orquídea con mesas de madera, plantas y orquídeas junto a la ventana"
-					width={640}
+					width={720}
 				/>
-				<p><a href="https://wa.me/51942123456" class="inline-block rounded-full bg-orquidea px-6 py-3 font-semibold text-crema-claro hover:bg-orquidea-oscuro">Pide por WhatsApp</a></p>
 			</section>
 
 			<section class="mx-auto max-w-6xl px-6 pb-16">
@@ -83,10 +85,17 @@ import '../styles/global.css';
 				</div>
 			</section>
 
-			<section class="mb-12 space-y-4">
-				<h2 class="font-titulo text-3xl font-semibold text-cafe">Horario</h2>
-				<p>De lunes a viernes, de 7:00 a. m. a 9:00 p. m. Los sábados, de 8:00 a. m. a 2:00 p. m.</p>
-			</section>
+			<div class="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-6 pb-16">
+				<section class="space-y-3 rounded-3xl bg-crema-claro p-8 shadow-lg shadow-cafe-oscuro/10">
+					<h2 class="font-titulo text-3xl font-semibold text-cafe">Horario</h2>
+					<p>De lunes a viernes, de 7:00 a. m. a 9:00 p. m. Los sábados, de 8:00 a. m. a 2:00 p. m.</p>
+				</section>
+				<section class="space-y-3 rounded-3xl bg-selva p-8 text-crema">
+					<h2 class="font-titulo text-3xl font-semibold text-crema">Dónde estamos</h2>
+					<p>Jr. Grau 345, a media cuadra de la Plaza de Armas de Rioja.</p>
+					<p><a href="/contacto" class="font-semibold text-orquidea-claro underline underline-offset-4">Ver el mapa</a></p>
+				</section>
+			</div>
 		</main>
 
 		<footer class="space-y-4 bg-selva px-6 py-8 text-sm text-crema">
