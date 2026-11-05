@@ -11,8 +11,9 @@ JavaScript, usando Astro.
 
 ## Calendario
 
-Todas las tareas y cuestionarios, de la semana 1 a la 8, cierran el **domingo 29 de noviembre a las 23:59**. Cada
-guía se publica apenas está lista y queda abierta hasta el cierre. Para llegar sin apuro, sigue este ritmo.
+Todas las tareas y cuestionarios, de la semana 1 a la 8, cierran el **domingo 29 de noviembre a las 23:59**, el
+cierre único de todo el curso. Las ocho guías ya están publicadas y quedan abiertas hasta esa hora. Para llegar sin
+apuro, sigue este ritmo.
 
 | Semana | Tema | Termínala hasta el | Guía |
 | :-: | :-- | :-- | :-- |
@@ -21,12 +22,12 @@ guía se publica apenas está lista y queda abierta hasta el cierre. Para llegar
 | 3 | El CSS que hay que entender y Tailwind | Cuanto antes, si te falta | [Semana 3](guias/semana-3.md) |
 | 4 | Maquetación para celular y computadora (evaluación intermedia) | Domingo 15 de noviembre | [Semana 4](guias/semana-4.md) |
 | 5 | Componentes, molde de página y datos | Domingo 15 de noviembre | [Semana 5](guias/semana-5.md) |
-| 6 | JavaScript en el navegador | Domingo 22 de noviembre | Próximamente |
-| 7 | Formularios, SEO y rendimiento | Domingo 22 de noviembre | Próximamente |
-| 8 | Publicar y sustentar (evaluación final) | Domingo 29 de noviembre, 23:59 | Próximamente |
+| 6 | El menú del celular y un componente interactivo | Domingo 22 de noviembre | [Semana 6](guias/semana-6.md) |
+| 7 | El formulario de WhatsApp y tu sitio listo para Google | Domingo 22 de noviembre | [Semana 7](guias/semana-7.md) |
+| 8 | Tu sitio publicado en GitHub Pages y tu sustentación (evaluación final) | Domingo 29 de noviembre, 23:59, cierre del curso | [Semana 8](guias/semana-8.md) |
 
 **Si vas atrasado**, sigue las guías en orden sobre tu mismo sitio. El revisor de cada semana comprueba también lo de
-las anteriores, así que `npm run revisar -- 4` te muestra todo lo que te falta hasta la semana 4.
+las anteriores, así que `npm run revisar -- 8` te muestra todo lo que te falta hasta el final del curso.
 
 ## Cómo es cada semana
 
@@ -35,6 +36,7 @@ las anteriores, así que `npm run revisar -- 4` te muestra todo lo que te falta 
 3. **Práctica en tu propio sitio.** El revisor (`npm run revisar -- N`, con el número de la semana) te dice qué
    falta antes de entregar.
 4. **Entrega** del enlace de tu repositorio en el aula, siempre el mismo, y un **cuestionario** de cinco preguntas.
+   En la semana 8 se suman el enlace de tu sitio publicado y el vídeo de tu sustentación.
 5. **Dudas** por Google Chat, con el mensaje exacto de la terminal (o una captura) y el paso de la guía.
 
 ## Reglas del proyecto
