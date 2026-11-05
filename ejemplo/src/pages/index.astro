@@ -41,8 +41,8 @@ import '../styles/global.css';
 		<main>
 			<section class="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:px-6 md:grid-cols-2 md:items-center md:gap-10 md:py-16">
 				<div class="space-y-6">
-					<h1 class="font-titulo text-6xl font-semibold leading-tight text-cafe">Café Orquídea</h1>
-					<p class="text-xl">Café de la provincia, desayunos y postres caseros en el centro de Rioja.</p>
+					<h1 class="font-titulo text-4xl font-semibold leading-tight text-cafe sm:text-5xl lg:text-6xl">Café Orquídea</h1>
+					<p class="text-lg sm:text-xl">Café de la provincia, desayunos y postres caseros en el centro de Rioja.</p>
 					<p><a href="https://wa.me/51942123456" class="inline-block rounded-full bg-orquidea px-6 py-3 font-semibold text-crema-claro hover:bg-orquidea-oscuro">Pide por WhatsApp</a></p>
 				</div>
 				<Image class="w-full rounded-3xl"
@@ -52,9 +52,9 @@ import '../styles/global.css';
 				/>
 			</section>
 
-			<section class="mx-auto max-w-6xl px-6 pb-16">
-				<div class="flex items-end justify-between gap-4">
-					<h2 class="font-titulo text-4xl font-semibold text-cafe">Lo más pedido</h2>
+			<section class="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
+				<div class="flex flex-wrap items-end justify-between gap-4">
+					<h2 class="font-titulo text-3xl font-semibold text-cafe md:text-4xl">Lo más pedido</h2>
 					<a href="/carta" class="font-semibold text-orquidea-oscuro underline underline-offset-4 hover:text-orquidea">Ver la carta completa</a>
 				</div>
 				<div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -86,11 +86,11 @@ import '../styles/global.css';
 			</section>
 
 			<div class="mx-auto grid max-w-6xl gap-6 px-4 pb-16 sm:px-6 md:grid-cols-2">
-				<section class="space-y-3 rounded-3xl bg-crema-claro p-8 shadow-lg shadow-cafe-oscuro/10">
+				<section class="space-y-3 rounded-3xl bg-crema-claro p-6 sm:p-8 shadow-lg shadow-cafe-oscuro/10">
 					<h2 class="font-titulo text-3xl font-semibold text-cafe">Horario</h2>
 					<p>De lunes a viernes, de 7:00 a. m. a 9:00 p. m. Los sábados, de 8:00 a. m. a 2:00 p. m.</p>
 				</section>
-				<section class="space-y-3 rounded-3xl bg-selva p-8 text-crema">
+				<section class="space-y-3 rounded-3xl bg-selva p-6 sm:p-8 text-crema">
 					<h2 class="font-titulo text-3xl font-semibold text-crema">Dónde estamos</h2>
 					<p>Jr. Grau 345, a media cuadra de la Plaza de Armas de Rioja.</p>
 					<p><a href="/contacto" class="font-semibold text-orquidea-claro underline underline-offset-4">Ver el mapa</a></p>
@@ -99,7 +99,7 @@ import '../styles/global.css';
 		</main>
 
 		<footer class="bg-selva text-sm text-crema">
-			<div class="mx-auto flex max-w-6xl items-start justify-between gap-8 px-6 py-8">
+			<div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-8 sm:px-6 md:flex-row md:items-start md:justify-between md:gap-8">
 				<address class="not-italic">
 					Jr. Grau 345, Rioja, San Martín<br />
 					<a href="tel:+51942123456" class="font-semibold text-orquidea-claro underline underline-offset-4">Llamar al 942 123 456</a>

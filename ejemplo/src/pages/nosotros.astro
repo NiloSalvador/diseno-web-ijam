@@ -38,11 +38,11 @@ import '../styles/global.css';
 			</div>
 		</header>
 
-		<main class="mx-auto max-w-6xl px-6 py-16">
-			<h1 class="font-titulo text-6xl font-semibold leading-tight text-cafe">Nosotros</h1>
+		<main class="mx-auto max-w-6xl px-4 py-10 sm:px-6 md:py-16">
+			<h1 class="font-titulo text-4xl font-semibold leading-tight text-cafe sm:text-5xl lg:text-6xl">Nosotros</h1>
 
 			<section class="mt-10 max-w-3xl space-y-4 text-lg">
-				<h2 class="font-titulo text-4xl font-semibold text-cafe">Nuestra historia</h2>
+				<h2 class="font-titulo text-3xl font-semibold text-cafe md:text-4xl">Nuestra historia</h2>
 				<p>
 					Café Orquídea abrió en 2019 en el centro de Rioja con cuatro mesas y una cafetera prestada. La idea era
 					sencilla, servir el café que se cultiva a pocos kilómetros de la ciudad, preparado como en casa.
@@ -60,7 +60,7 @@ import '../styles/global.css';
 					width={720}
 				/>
 				<div class="space-y-4 text-lg">
-					<h2 class="font-titulo text-4xl font-semibold text-cafe">De dónde viene nuestro café</h2>
+					<h2 class="font-titulo text-3xl font-semibold text-cafe md:text-4xl">De dónde viene nuestro café</h2>
 					<p>
 						Compramos el grano a familias productoras de Rioja y Nueva Cajamarca. Lo tostamos cada semana en pequeñas
 						cantidades, para que llegue fresco a la taza.
@@ -69,7 +69,7 @@ import '../styles/global.css';
 			</section>
 
 			<section class="mt-16">
-				<h2 class="font-titulo text-4xl font-semibold text-cafe">El café por dentro</h2>
+				<h2 class="font-titulo text-3xl font-semibold text-cafe md:text-4xl">El café por dentro</h2>
 				<div class="mt-8 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4">
 					<Image class="aspect-square w-full rounded-2xl object-cover" src={fotoLocal} alt="Mesas de madera del salón con plantas junto a la ventana" width={400} />
 					<Image class="aspect-square w-full rounded-2xl object-cover" src={fotoCafe} alt="Taza de café pasado recién servida junto a granos tostados" width={400} />
@@ -78,7 +78,7 @@ import '../styles/global.css';
 				</div>
 			</section>
 
-			<section class="mt-16 max-w-xl space-y-3 rounded-3xl bg-crema-claro p-8 shadow-lg shadow-cafe-oscuro/10">
+			<section class="mt-16 max-w-xl space-y-3 rounded-3xl bg-crema-claro p-6 sm:p-8 shadow-lg shadow-cafe-oscuro/10">
 				<h2 class="font-titulo text-3xl font-semibold text-cafe">Horario</h2>
 				<ul class="list-disc pl-6">
 					<li>Lunes a viernes, de 7:00 a. m. a 9:00 p. m.</li>
@@ -89,7 +89,7 @@ import '../styles/global.css';
 		</main>
 
 		<footer class="bg-selva text-sm text-crema">
-			<div class="mx-auto flex max-w-6xl items-start justify-between gap-8 px-6 py-8">
+			<div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-8 sm:px-6 md:flex-row md:items-start md:justify-between md:gap-8">
 				<address class="not-italic">
 					Jr. Grau 345, Rioja, San Martín<br />
 					<a href="tel:+51942123456" class="font-semibold text-orquidea-claro underline underline-offset-4">Llamar al 942 123 456</a>
