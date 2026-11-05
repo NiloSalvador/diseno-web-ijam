@@ -1,0 +1,39 @@
+# Publica el sitio en GitHub Pages cada vez que subes cambios a la rama main.
+# Es el flujo oficial de la documentación de Astro («Deploy your Astro site to GitHub Pages»),
+# con los comentarios en español. En tu repositorio va en .github/workflows/deploy.yml.
+name: Deploy to GitHub Pages
+
+on:
+  # Se ejecuta cada vez que subes (push) cambios a la rama main.
+  push:
+    branches: [ main ]
+  # Y también a mano, desde la pestaña Actions de GitHub.
+  workflow_dispatch:
+
+# Los permisos para leer el repositorio y publicar en GitHub Pages.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout your repository using git
+        uses: actions/checkout@v7
+      - name: Install, build, and upload your site
+        uses: withastro/action@v6
+        # La acción instala las dependencias con el gestor que dice tu package-lock.json,
+        # compila con npm run build y sube la carpeta dist.
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

@@ -9,6 +9,11 @@ import Layout from '../layouts/Layout.astro';
 import Tarjeta from '../components/Tarjeta.astro';
 // Los productos y la función que escribe los precios en soles vienen del archivo de datos.
 import { productos, soles } from '../data/carta.js';
+
+// La base del sitio, la carpeta donde GitHub Pages lo publica (/diseno-web-ijam). Sale de «base» en
+// astro.config.mjs. El .replace quita la barra del final si la tiene, así cada enlace se escribe
+// igual, la base y luego la ruta que empieza con /.
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Layout title="Café Orquídea | Cafetería en Rioja" description="Café de la provincia, desayunos de la selva y postres caseros a media cuadra de la Plaza de Armas de Rioja. Pide por WhatsApp y pasa a recoger." pagina="/">
@@ -29,7 +34,7 @@ import { productos, soles } from '../data/carta.js';
 		<section class="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
 			<div class="flex flex-wrap items-end justify-between gap-4">
 				<h2 class="font-titulo text-3xl font-semibold text-cafe md:text-4xl">Lo más pedido</h2>
-				<a href="/carta" class="font-semibold text-orquidea-oscuro underline underline-offset-4 hover:text-orquidea">Ver la carta completa</a>
+				<a href={`${base}/carta`} class="font-semibold text-orquidea-oscuro underline underline-offset-4 hover:text-orquidea">Ver la carta completa</a>
 			</div>
 			<div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
 				{productos.map((producto) => (
@@ -52,7 +57,7 @@ import { productos, soles } from '../data/carta.js';
 			<section class="space-y-3 rounded-3xl bg-selva p-6 sm:p-8 text-crema">
 				<h2 class="font-titulo text-3xl font-semibold text-crema">Dónde estamos</h2>
 				<p>Jr. Grau 345, a media cuadra de la Plaza de Armas de Rioja.</p>
-				<p><a href="/contacto" class="font-semibold text-orquidea-claro underline underline-offset-4">Ver el mapa</a></p>
+				<p><a href={`${base}/contacto`} class="font-semibold text-orquidea-claro underline underline-offset-4">Ver el mapa</a></p>
 			</section>
 		</div>
 	</main>

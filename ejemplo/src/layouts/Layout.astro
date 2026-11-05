@@ -12,17 +12,23 @@ import '../styles/global.css';
 
 const { title, description, pagina } = Astro.props;
 
+// La base del sitio, la carpeta donde GitHub Pages lo publica (/diseno-web-ijam). Sale de «base» en
+// astro.config.mjs. El .replace quita la barra del final si la tiene, así cada enlace se escribe
+// igual, la base y luego la ruta que empieza con /.
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
 // Open Graph: lo que muestran WhatsApp y Facebook cuando alguien comparte un enlace del sitio.
 // Las direcciones van completas, con https://, armadas con el «site» de astro.config.mjs.
+// Astro.url.pathname ya trae la base; la imagen de public/ la lleva escrita, como los enlaces.
 const direccion = new URL(Astro.url.pathname, Astro.site);
-const imagen = new URL('/compartir.jpg', Astro.site);
+const imagen = new URL(`${base}/compartir.jpg`, Astro.site);
 ---
 
 <html lang="es">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
+		<link rel="icon" href={`${base}/favicon.ico`} />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="description" content={description} />
 		<meta property="og:type" content="website" />
