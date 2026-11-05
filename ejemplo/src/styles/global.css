@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 /* La marca de Café Orquídea, tal como la pide el brief. Cada variable de @theme se vuelve una
    clase de Tailwind, por ejemplo --color-selva da bg-selva, text-selva y border-selva, y

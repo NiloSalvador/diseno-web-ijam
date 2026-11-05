@@ -1,0 +1,65 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import local from '../assets/local.jpg';
+---
+
+<Layout title="Opciones | Café Orquídea" description="Página de prueba de las opciones de la lección 6.2." pagina="/opciones">
+	<main class="mx-auto max-w-6xl space-y-10 px-4 py-10 sm:px-6 dark:bg-cafe-oscuro dark:text-crema">
+		<h1 class="font-titulo text-4xl font-semibold text-cafe dark:text-crema">Opciones</h1>
+
+		<button id="boton-tema" type="button" aria-pressed="false" class="rounded-full border-2 border-selva px-5 py-2 font-semibold text-selva dark:border-crema dark:text-crema">Modo oscuro</button>
+
+		<button id="abrir-foto" type="button" class="block overflow-hidden rounded-3xl">
+			<Image src={local} alt="El salón de Café Orquídea con sus mesas de madera" width={400} />
+		</button>
+		<dialog id="foto-grande" class="m-auto max-w-3xl rounded-3xl p-0 backdrop:bg-cafe-oscuro/70">
+			<Image src={local} alt="El salón de Café Orquídea con sus mesas de madera" width={1200} />
+			<form method="dialog" class="p-4 text-right">
+				<button class="rounded-full bg-selva px-5 py-2 font-semibold text-crema">Cerrar</button>
+			</form>
+		</dialog>
+
+		<figure class="rounded-3xl bg-crema-claro p-6">
+			<blockquote id="testimonio" class="font-titulo text-xl text-cafe">«El mejor café pasado de Rioja.» Rosa, cliente desde 2019</blockquote>
+			<button id="otro-testimonio" type="button" class="mt-4 rounded-full border-2 border-selva px-5 py-2 font-semibold text-selva">Ver otra opinión</button>
+		</figure>
+
+	</main>
+</Layout>
+
+<script>
+	const abrir = document.getElementById('abrir-foto');
+	const foto = document.getElementById('foto-grande');
+
+	abrir.addEventListener('click', () => {
+		foto.showModal();
+	});
+</script>
+
+<script>
+	const testimonios = [
+		'«El mejor café pasado de Rioja.» Rosa, cliente desde 2019',
+		'«Reservé para mi equipo por WhatsApp y todo salió puntual.» Jorge',
+		'«Los postres caseros valen el viaje.» Lucía, de paso por el Alto Mayo',
+	];
+	const testimonio = document.getElementById('testimonio');
+	const otro = document.getElementById('otro-testimonio');
+
+	function mostrarUnoAlAzar() {
+		const numero = Math.floor(Math.random() * testimonios.length);
+		testimonio.textContent = testimonios[numero];
+	}
+
+	mostrarUnoAlAzar();
+	otro.addEventListener('click', mostrarUnoAlAzar);
+</script>
+
+<script>
+	const botonTema = document.getElementById('boton-tema');
+
+	botonTema.addEventListener('click', () => {
+		const oscuro = document.documentElement.classList.toggle('dark');
+		botonTema.setAttribute('aria-pressed', oscuro ? 'true' : 'false');
+	});
+</script>
