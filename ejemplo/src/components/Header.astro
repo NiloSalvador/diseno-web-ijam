@@ -2,6 +2,9 @@
 // La cabecera de todas las páginas. Recibe por props «pagina», la dirección de la página que se
 // está viendo, y marca ese enlace del menú con aria-current="page". La clase
 // aria-[current=page]:underline subraya solo el enlace que tiene esa marca.
+//
+// En el celular el menú se esconde detrás del botón «Menú» (la clase hidden) y el <script> de
+// abajo lo abre y lo cierra. Desde md: el menú se ve siempre (md:flex) y el botón no (md:hidden).
 const { pagina } = Astro.props;
 ---
 
@@ -27,3 +30,19 @@ const { pagina } = Astro.props;
 		</nav>
 	</div>
 </header>
+
+<script>
+	// El botón y la lista del menú, buscados por su id. El id tiene que ser igual aquí y en el
+	// HTML de arriba; si no, getElementById devuelve null y el menú no funciona.
+	const boton = document.getElementById('boton-menu');
+	const menu = document.getElementById('menu-principal');
+
+	// Al pulsar el botón, el menú se abre si estaba cerrado y se cierra si estaba abierto.
+	// aria-expanded le dice al lector de pantalla si el menú está abierto ("true") o cerrado ("false").
+	boton.addEventListener('click', () => {
+		const abierto = boton.getAttribute('aria-expanded') === 'true';
+		boton.setAttribute('aria-expanded', abierto ? 'false' : 'true');
+		menu.classList.toggle('hidden');
+	});
+
+</script>
