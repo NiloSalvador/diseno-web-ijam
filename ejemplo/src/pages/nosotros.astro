@@ -6,96 +6,58 @@ import fotoLocal from '../assets/local.jpg';
 import fotoCafe from '../assets/cafe-pasado.jpg';
 import fotoDesayuno from '../assets/desayuno.jpg';
 import fotoPostre from '../assets/postre.jpg';
-// Las fuentes de la marca y los estilos de Tailwind. Por ahora se importan en cada página;
-// en la semana 5 irán una sola vez en el layout.
-import '@fontsource/fraunces/600.css';
-import '@fontsource/inter/400.css';
-import '@fontsource/inter/600.css';
-import '../styles/global.css';
+// El molde de página pone el <head>, la cabecera, el pie, las fuentes y los estilos.
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="es">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Nosotros | Café Orquídea</title>
-	</head>
-	<body class="bg-crema font-texto leading-relaxed text-cafe-oscuro antialiased">
-		<header class="bg-selva">
-			<div class="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
-				<a href="/" class="font-titulo text-2xl font-semibold text-crema">Café Orquídea</a>
-				<nav aria-label="Principal">
-					<ul class="flex flex-wrap gap-x-6 gap-y-2">
-						<li><a href="/" class="font-semibold text-crema hover:text-orquidea-claro">Inicio</a></li>
-						<li><a href="/carta" class="font-semibold text-crema hover:text-orquidea-claro">Carta</a></li>
-						<li><a href="/nosotros" aria-current="page" class="font-semibold text-crema underline underline-offset-4">Nosotros</a></li>
-						<li><a href="/contacto" class="font-semibold text-crema hover:text-orquidea-claro">Contacto</a></li>
-					</ul>
-				</nav>
-			</div>
-		</header>
+<Layout title="Nosotros | Café Orquídea" description="La historia de Café Orquídea, el café de altura del Alto Mayo que servimos y fotos del local en el centro de Rioja." pagina="/nosotros">
+	<main class="mx-auto max-w-6xl px-4 py-10 sm:px-6 md:py-16">
+		<h1 class="font-titulo text-4xl font-semibold leading-tight text-cafe sm:text-5xl lg:text-6xl">Nosotros</h1>
 
-		<main class="mx-auto max-w-6xl px-4 py-10 sm:px-6 md:py-16">
-			<h1 class="font-titulo text-4xl font-semibold leading-tight text-cafe sm:text-5xl lg:text-6xl">Nosotros</h1>
+		<section class="mt-10 max-w-3xl space-y-4 text-lg">
+			<h2 class="font-titulo text-3xl font-semibold text-cafe md:text-4xl">Nuestra historia</h2>
+			<p>
+				Café Orquídea abrió en 2019 en el centro de Rioja con cuatro mesas y una cafetera prestada. La idea era
+				sencilla, servir el café que se cultiva a pocos kilómetros de la ciudad, preparado como en casa.
+			</p>
+			<p>
+				Hoy atendemos a quienes pasan antes del trabajo, a estudiantes que se reúnen por la tarde y a viajeros que
+				cruzan el Alto Mayo.
+			</p>
+		</section>
 
-			<section class="mt-10 max-w-3xl space-y-4 text-lg">
-				<h2 class="font-titulo text-3xl font-semibold text-cafe md:text-4xl">Nuestra historia</h2>
+		<section class="mt-12 grid gap-8 md:mt-16 md:grid-cols-2 md:items-center md:gap-10">
+			<Image class="w-full rounded-3xl"
+				src={fotoGranos}
+				alt="Rama de cafeto con granos maduros de color rojo en una finca de la selva alta"
+				width={720}
+			/>
+			<div class="space-y-4 text-lg">
+				<h2 class="font-titulo text-3xl font-semibold text-cafe md:text-4xl">De dónde viene nuestro café</h2>
 				<p>
-					Café Orquídea abrió en 2019 en el centro de Rioja con cuatro mesas y una cafetera prestada. La idea era
-					sencilla, servir el café que se cultiva a pocos kilómetros de la ciudad, preparado como en casa.
+					Compramos el grano a familias productoras de Rioja y Nueva Cajamarca. Lo tostamos cada semana en pequeñas
+					cantidades, para que llegue fresco a la taza.
 				</p>
-				<p>
-					Hoy atendemos a quienes pasan antes del trabajo, a estudiantes que se reúnen por la tarde y a viajeros que
-					cruzan el Alto Mayo.
-				</p>
-			</section>
-
-			<section class="mt-12 grid gap-8 md:mt-16 md:grid-cols-2 md:items-center md:gap-10">
-				<Image class="w-full rounded-3xl"
-					src={fotoGranos}
-					alt="Rama de cafeto con granos maduros de color rojo en una finca de la selva alta"
-					width={720}
-				/>
-				<div class="space-y-4 text-lg">
-					<h2 class="font-titulo text-3xl font-semibold text-cafe md:text-4xl">De dónde viene nuestro café</h2>
-					<p>
-						Compramos el grano a familias productoras de Rioja y Nueva Cajamarca. Lo tostamos cada semana en pequeñas
-						cantidades, para que llegue fresco a la taza.
-					</p>
-				</div>
-			</section>
-
-			<section class="mt-16">
-				<h2 class="font-titulo text-3xl font-semibold text-cafe md:text-4xl">El café por dentro</h2>
-				<div class="mt-8 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4">
-					<Image class="aspect-square w-full rounded-2xl object-cover" src={fotoLocal} alt="Mesas de madera del salón con plantas junto a la ventana" width={400} />
-					<Image class="aspect-square w-full rounded-2xl object-cover" src={fotoCafe} alt="Taza de café pasado recién servida junto a granos tostados" width={400} />
-					<Image class="aspect-square w-full rounded-2xl object-cover" src={fotoDesayuno} alt="Desayuno de tacacho con cecina servido en la mesa" width={400} />
-					<Image class="aspect-square w-full rounded-2xl object-cover" src={fotoPostre} alt="Tajada de torta de chocolate de la vitrina de postres" width={400} />
-				</div>
-			</section>
-
-			<section class="mt-16 max-w-xl space-y-3 rounded-3xl bg-crema-claro p-6 sm:p-8 shadow-lg shadow-cafe-oscuro/10">
-				<h2 class="font-titulo text-3xl font-semibold text-cafe">Horario</h2>
-				<ul class="list-disc pl-6">
-					<li>Lunes a viernes, de 7:00 a. m. a 9:00 p. m.</li>
-					<li>Sábados, de 8:00 a. m. a 2:00 p. m.</li>
-					<li>Domingos y feriados, cerrado.</li>
-				</ul>
-			</section>
-		</main>
-
-		<footer class="bg-selva text-sm text-crema">
-			<div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-8 sm:px-6 md:flex-row md:items-start md:justify-between md:gap-8">
-				<address class="not-italic">
-					Jr. Grau 345, Rioja, San Martín<br />
-					<a href="tel:+51942123456" class="font-semibold text-orquidea-claro underline underline-offset-4">Llamar al 942 123 456</a>
-				</address>
-				<p class="max-w-sm">Café Orquídea es un negocio ficticio, creado para el curso Diseño Web del IESTP John A. Mackay.</p>
 			</div>
-		</footer>
-	</body>
-</html>
+		</section>
+
+		<section class="mt-16">
+			<h2 class="font-titulo text-3xl font-semibold text-cafe md:text-4xl">El café por dentro</h2>
+			<div class="mt-8 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4">
+				<Image class="aspect-square w-full rounded-2xl object-cover" src={fotoLocal} alt="Mesas de madera del salón con plantas junto a la ventana" width={400} />
+				<Image class="aspect-square w-full rounded-2xl object-cover" src={fotoCafe} alt="Taza de café pasado recién servida junto a granos tostados" width={400} />
+				<Image class="aspect-square w-full rounded-2xl object-cover" src={fotoDesayuno} alt="Desayuno de tacacho con cecina servido en la mesa" width={400} />
+				<Image class="aspect-square w-full rounded-2xl object-cover" src={fotoPostre} alt="Tajada de torta de chocolate de la vitrina de postres" width={400} />
+			</div>
+		</section>
+
+		<section class="mt-16 max-w-xl space-y-3 rounded-3xl bg-crema-claro p-6 sm:p-8 shadow-lg shadow-cafe-oscuro/10">
+			<h2 class="font-titulo text-3xl font-semibold text-cafe">Horario</h2>
+			<ul class="list-disc pl-6">
+				<li>Lunes a viernes, de 7:00 a. m. a 9:00 p. m.</li>
+				<li>Sábados, de 8:00 a. m. a 2:00 p. m.</li>
+				<li>Domingos y feriados, cerrado.</li>
+			</ul>
+		</section>
+	</main>
+</Layout>

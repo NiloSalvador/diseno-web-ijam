@@ -1,86 +1,48 @@
 ---
 // Contacto: WhatsApp, teléfono, dirección con mapa y horario.
 // El mapa es un iframe de Google Maps; su «title» dice qué hay dentro para quien usa lector de pantalla.
-// Las fuentes de la marca y los estilos de Tailwind. Por ahora se importan en cada página;
-// en la semana 5 irán una sola vez en el layout.
-import '@fontsource/fraunces/600.css';
-import '@fontsource/inter/400.css';
-import '@fontsource/inter/600.css';
-import '../styles/global.css';
+// El molde de página pone el <head>, la cabecera, el pie, las fuentes y los estilos.
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="es">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Contacto | Café Orquídea</title>
-	</head>
-	<body class="bg-crema font-texto leading-relaxed text-cafe-oscuro antialiased">
-		<header class="bg-selva">
-			<div class="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
-				<a href="/" class="font-titulo text-2xl font-semibold text-crema">Café Orquídea</a>
-				<nav aria-label="Principal">
-					<ul class="flex flex-wrap gap-x-6 gap-y-2">
-						<li><a href="/" class="font-semibold text-crema hover:text-orquidea-claro">Inicio</a></li>
-						<li><a href="/carta" class="font-semibold text-crema hover:text-orquidea-claro">Carta</a></li>
-						<li><a href="/nosotros" class="font-semibold text-crema hover:text-orquidea-claro">Nosotros</a></li>
-						<li><a href="/contacto" aria-current="page" class="font-semibold text-crema underline underline-offset-4">Contacto</a></li>
+<Layout title="Contacto | Café Orquídea" description="Escríbenos por WhatsApp, llámanos o visítanos en Jr. Grau 345, Rioja. Horario de atención y mapa para llegar a Café Orquídea." pagina="/contacto">
+	<main class="mx-auto max-w-6xl px-4 py-10 sm:px-6 md:py-16">
+		<h1 class="font-titulo text-4xl font-semibold leading-tight text-cafe sm:text-5xl lg:text-6xl">Contacto</h1>
+
+		<div class="mt-10 grid gap-10 md:grid-cols-2">
+			<div class="space-y-10">
+				<section class="space-y-4">
+					<h2 class="font-titulo text-3xl font-semibold text-cafe">Pide o reserva</h2>
+					<p>Escríbenos para pedir y recoger, o para reservar una mesa para tu grupo.</p>
+					<ul class="flex flex-wrap gap-3">
+						<li><a href="https://wa.me/51942123456" class="inline-block rounded-full bg-orquidea px-6 py-3 font-semibold text-crema-claro hover:bg-orquidea-oscuro">Escríbenos por WhatsApp</a></li>
+						<li><a href="tel:+51942123456" class="inline-block rounded-full border-2 border-selva px-6 py-3 font-semibold text-selva hover:bg-selva hover:text-crema">Llámanos al 942 123 456</a></li>
 					</ul>
-				</nav>
-			</div>
-		</header>
+				</section>
 
-		<main class="mx-auto max-w-6xl px-4 py-10 sm:px-6 md:py-16">
-			<h1 class="font-titulo text-4xl font-semibold leading-tight text-cafe sm:text-5xl lg:text-6xl">Contacto</h1>
-
-			<div class="mt-10 grid gap-10 md:grid-cols-2">
-				<div class="space-y-10">
-					<section class="space-y-4">
-						<h2 class="font-titulo text-3xl font-semibold text-cafe">Pide o reserva</h2>
-						<p>Escríbenos para pedir y recoger, o para reservar una mesa para tu grupo.</p>
-						<ul class="flex flex-wrap gap-3">
-							<li><a href="https://wa.me/51942123456" class="inline-block rounded-full bg-orquidea px-6 py-3 font-semibold text-crema-claro hover:bg-orquidea-oscuro">Escríbenos por WhatsApp</a></li>
-							<li><a href="tel:+51942123456" class="inline-block rounded-full border-2 border-selva px-6 py-3 font-semibold text-selva hover:bg-selva hover:text-crema">Llámanos al 942 123 456</a></li>
-						</ul>
-					</section>
-
-					<section class="space-y-3 rounded-3xl bg-crema-claro p-6 sm:p-8 shadow-lg shadow-cafe-oscuro/10">
-						<h2 class="font-titulo text-3xl font-semibold text-cafe">Horario</h2>
-						<ul class="list-disc pl-6">
-							<li>Lunes a viernes, de 7:00 a. m. a 9:00 p. m.</li>
-							<li>Sábados, de 8:00 a. m. a 2:00 p. m.</li>
-							<li>Domingos y feriados, cerrado.</li>
-						</ul>
-					</section>
-				</div>
-
-				<section class="flex flex-col gap-4">
-					<h2 class="font-titulo text-3xl font-semibold text-cafe">Dónde estamos</h2>
-					<address class="not-italic">Jr. Grau 345, a media cuadra de la Plaza de Armas de Rioja, San Martín</address>
-					<iframe
-						class="min-h-80 w-full flex-1 rounded-3xl"
-						src="https://www.google.com/maps?q=Plaza+de+Armas+de+Rioja,+San+Martin,+Peru&z=17&output=embed"
-						title="Mapa de Café Orquídea, junto a la Plaza de Armas de Rioja"
-						width="600"
-						height="400"
-						loading="lazy"
-						referrerpolicy="no-referrer-when-downgrade"
-					></iframe>
+				<section class="space-y-3 rounded-3xl bg-crema-claro p-6 sm:p-8 shadow-lg shadow-cafe-oscuro/10">
+					<h2 class="font-titulo text-3xl font-semibold text-cafe">Horario</h2>
+					<ul class="list-disc pl-6">
+						<li>Lunes a viernes, de 7:00 a. m. a 9:00 p. m.</li>
+						<li>Sábados, de 8:00 a. m. a 2:00 p. m.</li>
+						<li>Domingos y feriados, cerrado.</li>
+					</ul>
 				</section>
 			</div>
-		</main>
 
-		<footer class="bg-selva text-sm text-crema">
-			<div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-8 sm:px-6 md:flex-row md:items-start md:justify-between md:gap-8">
-				<address class="not-italic">
-					Jr. Grau 345, Rioja, San Martín<br />
-					<a href="tel:+51942123456" class="font-semibold text-orquidea-claro underline underline-offset-4">Llamar al 942 123 456</a>
-				</address>
-				<p class="max-w-sm">Café Orquídea es un negocio ficticio, creado para el curso Diseño Web del IESTP John A. Mackay.</p>
-			</div>
-		</footer>
-	</body>
-</html>
+			<section class="flex flex-col gap-4">
+				<h2 class="font-titulo text-3xl font-semibold text-cafe">Dónde estamos</h2>
+				<address class="not-italic">Jr. Grau 345, a media cuadra de la Plaza de Armas de Rioja, San Martín</address>
+				<iframe
+					class="min-h-80 w-full flex-1 rounded-3xl"
+					src="https://www.google.com/maps?q=Plaza+de+Armas+de+Rioja,+San+Martin,+Peru&z=17&output=embed"
+					title="Mapa de Café Orquídea, junto a la Plaza de Armas de Rioja"
+					width="600"
+					height="400"
+					loading="lazy"
+					referrerpolicy="no-referrer-when-downgrade"
+				></iframe>
+			</section>
+		</div>
+	</main>
+</Layout>
