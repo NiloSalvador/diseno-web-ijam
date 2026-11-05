@@ -222,7 +222,7 @@ botón. Así no se pierden en la página.
 **Así sabes que te salió.** A 375 px haz clic en un espacio vacío de la página y pulsa **Tab** hasta que el botón
 «Menú» quede marcado. Pulsa **Enter** y el menú se abre. Pulsa **Escape** y se cierra, con el botón todavía marcado.
 Luego pon el ancho en `1280`. El menú está en fila, sin botón, como antes. Escribe `npm run revisar -- 6` y el menú
-dice **Cuadra**. Café Orquídea en este punto tiene **90 de 100**; lo que falta es el componente de la lección 6.2.
+dice **Cuadra**. Café Orquídea en este punto tiene **89 de 100**; lo que falta es el componente de la lección 6.2.
 
 ## Paso 6. El error típico, un id escrito distinto
 
