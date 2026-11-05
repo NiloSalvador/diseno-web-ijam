@@ -1,0 +1,16 @@
+---
+// Una tarjeta de producto. Recibe sus datos por props (nombre, descripcion, precio, foto y alt),
+// así la misma tarjeta sirve para cualquier producto de la carta.
+import { Image } from 'astro:assets';
+
+const { nombre, descripcion, precio, foto, alt } = Astro.props;
+---
+
+<article class="flex flex-col overflow-hidden rounded-3xl bg-crema-claro shadow-lg shadow-cafe-oscuro/10">
+	<Image class="aspect-4/3 w-full object-cover" src={foto} alt={alt} width={640} />
+	<div class="flex flex-1 flex-col gap-2 p-6">
+		<h3 class="font-titulo text-2xl font-semibold text-cafe">{nombre}</h3>
+		<p>{descripcion}</p>
+		<p class="mt-auto pt-2 text-xl font-semibold text-selva">{precio}</p>
+	</div>
+</article>
