@@ -6,6 +6,7 @@
 import fotoCafe from '../assets/cafe-pasado.jpg';
 import fotoDesayuno from '../assets/desayuno.jpg';
 import fotoPostre from '../assets/postre.jpg';
+import fotoGranos from '../assets/granos.jpg';
 
 // Un arreglo, entre [ ], con un objeto, entre { }, por producto. Todos los objetos tienen los
 // mismos datos con los mismos nombres, porque cada uno se vuelve una <Tarjeta />.
@@ -30,6 +31,13 @@ export const productos = [
 		precio: 8,
 		foto: fotoPostre,
 		alt: 'Tajada de torta de chocolate con cobertura de chocolate en un plato blanco',
+	},
+	{
+		nombre: 'Café en grano para llevar',
+		descripcion: 'Bolsa de 250 g del café que servimos, tostado cada semana. En grano o molido, como lo prefieras.',
+		precio: 25,
+		foto: fotoGranos,
+		alt: 'Rama de cafeto con granos maduros de color rojo, como los de las fincas de donde sale nuestro café',
 	},
 ];
 
