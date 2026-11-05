@@ -1,0 +1,388 @@
+{
+  "semana": 8,
+  "titulo": "Tu sitio publicado en GitHub Pages y la revisión final",
+  "revisorMinimo": 8,
+  "paginasMinimas": 4,
+  "criterios": [
+    {
+      "tipo": "compila",
+      "puntos": 5,
+      "nombre": "El sitio compila"
+    },
+    {
+      "tipo": "base-github-pages",
+      "puntos": 10,
+      "nombre": "astro.config.mjs tiene site con tu usuario de GitHub y base con el nombre de tu repositorio"
+    },
+    {
+      "tipo": "flujo-github-pages",
+      "puntos": 10,
+      "nombre": "El flujo .github/workflows/deploy.yml publica con la acción de Astro y tiene sus permisos"
+    },
+    {
+      "tipo": "rutas-con-base",
+      "puntos": 8,
+      "nombre": "Ningún enlace, imagen ni archivo de public se queda sin la base"
+    },
+    {
+      "tipo": "enlace-publicado",
+      "puntos": 4,
+      "nombre": "README.md tiene la dirección de tu sitio publicado"
+    },
+    {
+      "tipo": "sitio-responde",
+      "puntos": 0,
+      "aviso": true,
+      "nombre": "Tu sitio publicado abre en internet (es un aviso y no cambia el puntaje)"
+    },
+    {
+      "tipo": "formulario",
+      "puntos": 4,
+      "nombre": "El formulario tiene cada campo con su label, su name y required en lo que no puede quedar vacío",
+      "minimo": 3
+    },
+    {
+      "tipo": "mensaje-whatsapp",
+      "puntos": 4,
+      "nombre": "Un <script> escucha el envío del formulario, evita que la página se recargue y abre WhatsApp con el texto pasado por encodeURIComponent"
+    },
+    {
+      "tipo": "descripciones-unicas",
+      "puntos": 3,
+      "nombre": "Cada página tiene su propia descripción, de 50 a 160 caracteres",
+      "minimo": 50,
+      "maximo": 160
+    },
+    {
+      "tipo": "open-graph",
+      "puntos": 4,
+      "nombre": "Cada página tiene Open Graph, con título, descripción, imagen, dirección y tipo"
+    },
+    {
+      "tipo": "sitemap",
+      "puntos": 3,
+      "nombre": "astro.config.mjs tiene site y la compilación genera el mapa del sitio con todas las páginas"
+    },
+    {
+      "tipo": "lighthouse",
+      "puntos": 4,
+      "nombre": "Hay un informe de Lighthouse en la carpeta lighthouse con 90 o más en las cuatro categorías, medido con npm run preview o sobre tu sitio publicado",
+      "carpeta": "lighthouse",
+      "minimo": 90
+    },
+    {
+      "tipo": "menu-movil",
+      "puntos": 4,
+      "nombre": "En el celular el menú se abre y se cierra con el botón «Menú», que tiene aria-expanded, y Escape lo cierra"
+    },
+    {
+      "tipo": "interactivo",
+      "puntos": 2,
+      "nombre": "Hay un componente interactivo, como preguntas frecuentes, una galería, un testimonio al azar o el modo oscuro",
+      "minimo": 3
+    },
+    {
+      "tipo": "prohibido-en-src",
+      "puntos": 2,
+      "nombre": "Ninguna etiqueta lleva onclick ni otro evento escrito en el HTML",
+      "extensiones": [
+        ".astro",
+        ".html",
+        ".md",
+        ".mdx"
+      ],
+      "patron": "(?<=^|\\s)on[a-z]+(?=\\s*=\\s*[\"'{])",
+      "mensaje": "la etiqueta lleva el atributo {texto}, un evento escrito en el HTML.",
+      "consejo": "Borra ese atributo y escucha el evento con addEventListener dentro de un <script>, como el del menú en src/components/Header.astro."
+    },
+    {
+      "tipo": "molde",
+      "puntos": 2,
+      "nombre": "Todas las páginas usan el molde de página, con su <slot /> y el <head>",
+      "carpeta": "src/layouts"
+    },
+    {
+      "tipo": "componentes",
+      "puntos": 2,
+      "nombre": "La cabecera y el pie son componentes de src/components",
+      "carpeta": "src/components",
+      "etiquetas": [
+        "header",
+        "footer"
+      ]
+    },
+    {
+      "tipo": "catalogo",
+      "puntos": 3,
+      "nombre": "El catálogo sale de un archivo de datos de src/data, con 4 elementos o más pintados con un componente",
+      "carpeta": "src/data",
+      "minimo": 4,
+      "componente": true
+    },
+    {
+      "tipo": "meta-viewport",
+      "puntos": 1,
+      "nombre": "Cada página se ajusta al ancho del celular con su meta viewport"
+    },
+    {
+      "tipo": "prohibido-en-src",
+      "puntos": 1,
+      "nombre": "Nada tiene un ancho fijo que se salga de la pantalla del celular",
+      "extensiones": [
+        ".astro",
+        ".html",
+        ".md",
+        ".mdx",
+        ".js",
+        ".jsx",
+        ".ts",
+        ".tsx",
+        ".css"
+      ],
+      "patron": "(?<![\\w:/\\[-])(?:min-)?w-(?:\\[(?:(?:[4-9]\\d{2}|[1-9]\\d{3,})(?:\\.\\d+)?px|(?:2[5-9]|[3-9]\\d|[1-9]\\d{2,})(?:\\.\\d+)?rem)\\]|[1-9]\\d{2,}(?![\\w./-]))|(?<![(\\w-]\\s*)(?:min-)?width\\s*:\\s*(?:[4-9]\\d{2}|[1-9]\\d{3,})(?:\\.\\d+)?px",
+      "mensaje": "{texto} fija un ancho que no cabe en la pantalla de un celular de 375 px.",
+      "consejo": "Cambia ese ancho fijo por un tope (max-w-), así la caja se achica cuando la pantalla es angosta."
+    },
+    {
+      "tipo": "clases",
+      "puntos": 1,
+      "nombre": "Pones cosas en fila con Flexbox (flex con justify-, items- o gap-)",
+      "todas": [
+        "^(?:[\\w-]+:)*(?:inline-)?flex$",
+        "^(?:[\\w-]+:)*(?:justify-|items-|gap-)"
+      ],
+      "falta": "Ningún elemento usa flex junto con justify-, items- o gap-. La barra de navegación es un buen lugar para empezar."
+    },
+    {
+      "tipo": "clases",
+      "puntos": 1,
+      "nombre": "Acomodas en columnas con Grid (grid y grid-cols-)",
+      "todas": [
+        "^(?:[\\w-]+:)*grid$",
+        "^(?:[\\w-]+:)*grid-cols-"
+      ],
+      "falta": "Ningún elemento usa grid con sus columnas (grid-cols-) en la misma etiqueta. Úsalo en las tarjetas o en una galería."
+    },
+    {
+      "tipo": "clases",
+      "puntos": 1,
+      "nombre": "En cada página el contenido cambia de forma en pantallas grandes (sm:, md:, lg:)",
+      "todas": [
+        "^(?:sm|md|lg|xl|2xl):(?:grid-cols-|col-span-|flex-row|flex-col|basis-|order-|w-|hidden$|block$|flex$|grid$|inline-flex$)"
+      ],
+      "porPagina": true,
+      "dentro": "main",
+      "falta": "En {pagina} el contenido principal se acomoda igual en el celular y en la computadora. Empieza con una columna y cambia a columnas o a fila desde un ancho mayor con sm:, md: o lg:."
+    },
+    {
+      "tipo": "capturas",
+      "puntos": 1,
+      "nombre": "Hay capturas de cada página a 375 y 1280 px en la carpeta capturas",
+      "carpeta": "capturas",
+      "anchos": [
+        375,
+        1280
+      ]
+    },
+    {
+      "tipo": "tailwind-instalado",
+      "puntos": 1,
+      "nombre": "Tailwind está instalado y llega a las cuatro páginas"
+    },
+    {
+      "tipo": "tema-tailwind",
+      "puntos": 1,
+      "nombre": "Los colores y la fuente de tu marca están en @theme y se usan",
+      "minimoColores": 3
+    },
+    {
+      "tipo": "clases-generadas",
+      "puntos": 1,
+      "nombre": "Todas las clases con los nombres de tu marca tienen estilos"
+    },
+    {
+      "tipo": "prohibido-en-src",
+      "puntos": 1,
+      "nombre": "Ninguna etiqueta lleva estilos en línea",
+      "extensiones": [
+        ".astro",
+        ".html",
+        ".md",
+        ".mdx",
+        ".jsx",
+        ".tsx"
+      ],
+      "patron": "\\sstyle\\s*=\\s*(?:\"[^\"]*\"|'[^']*'|\\{[^}]*\\}+)",
+      "mensaje": "la etiqueta lleva {texto}.",
+      "consejo": "Pasa ese estilo a clases de Tailwind y borra el atributo style."
+    },
+    {
+      "tipo": "prohibido-en-src",
+      "puntos": 1,
+      "nombre": "Ningún color suelto como bg-[#…], todos salen de @theme",
+      "extensiones": [
+        ".astro",
+        ".html",
+        ".md",
+        ".mdx",
+        ".js",
+        ".jsx",
+        ".ts",
+        ".tsx",
+        ".css"
+      ],
+      "patron": "[\\w:/-]*-\\[(?:#|rgba?\\(|hsla?\\(|oklch\\(|oklab\\()[^\\]\\s]*\\]",
+      "mensaje": "la clase {texto} pone un color suelto.",
+      "consejo": "Escribe ese color en @theme con un nombre (por ejemplo --color-selva) y usa la clase con ese nombre (bg-selva)."
+    },
+    {
+      "tipo": "paginas",
+      "puntos": 1,
+      "nombre": "Siguen las cuatro páginas con su contenido",
+      "minimo": 4,
+      "etiqueta": "main",
+      "minimoPalabras": 25
+    },
+    {
+      "tipo": "atributo-html",
+      "puntos": 1,
+      "nombre": "Cada página dice que está en español",
+      "atributo": "lang",
+      "valor": "es"
+    },
+    {
+      "tipo": "etiquetas-por-pagina",
+      "puntos": 1,
+      "nombre": "Cada página tiene cabecera, menú, contenido principal y pie",
+      "etiquetas": [
+        "header",
+        "nav",
+        "main",
+        "footer"
+      ]
+    },
+    {
+      "tipo": "una-por-pagina",
+      "puntos": 1,
+      "nombre": "Cada página tiene un solo encabezado principal",
+      "etiqueta": "h1",
+      "distintoDe": [
+        "Nombre de tu negocio",
+        "Nombre del negocio",
+        "Astro"
+      ]
+    },
+    {
+      "tipo": "titulos-unicos",
+      "puntos": 1,
+      "nombre": "Cada página tiene su propio título de pestaña",
+      "distintoDe": [
+        "Nombre de tu negocio",
+        "Nombre del negocio",
+        "Astro"
+      ]
+    },
+    {
+      "tipo": "enlaces-internos",
+      "puntos": 1,
+      "nombre": "El menú lleva a todas las páginas y ningún enlace está roto"
+    },
+    {
+      "tipo": "enlaces-con",
+      "puntos": 1,
+      "nombre": "Hay un enlace para llamar y otro de WhatsApp",
+      "enlaces": [
+        {
+          "nombre": "para llamar",
+          "prefijos": [
+            "tel:"
+          ]
+        },
+        {
+          "nombre": "de WhatsApp",
+          "prefijos": [
+            "https://wa.me/",
+            "https://api.whatsapp.com/"
+          ]
+        }
+      ]
+    },
+    {
+      "tipo": "imagenes-alt",
+      "puntos": 1,
+      "nombre": "Hay al menos tres imágenes y cada una dice qué muestra",
+      "minimo": 3,
+      "genericas": [
+        "imagen",
+        "foto",
+        "image",
+        "img",
+        "picture",
+        "logo",
+        "una foto",
+        "una imagen"
+      ]
+    },
+    {
+      "tipo": "imagenes-cargan",
+      "puntos": 1,
+      "nombre": "Todas las imágenes cargan"
+    },
+    {
+      "tipo": "imagenes-optimizadas",
+      "puntos": 1,
+      "nombre": "Las fotos pasan por <Image /> de Astro",
+      "minimo": 1
+    },
+    {
+      "tipo": "tabla-con-th",
+      "puntos": 1,
+      "nombre": "Hay una tabla con encabezados"
+    },
+    {
+      "tipo": "iframe-con-title",
+      "puntos": 1,
+      "nombre": "El mapa tiene un título que dice qué muestra",
+      "minimo": 1
+    },
+    {
+      "tipo": "apartados-markdown",
+      "puntos": 1,
+      "nombre": "El brief tiene todos sus apartados escritos",
+      "archivo": "BRIEF.md",
+      "apartados": [
+        "El negocio",
+        "El permiso",
+        "Objetivo del sitio",
+        "Público",
+        "Páginas",
+        "Contenido que ya tienes",
+        "Estilo visual",
+        "Boceto"
+      ],
+      "minimoPalabras": 8,
+      "marcador": "Escribe aquí"
+    },
+    {
+      "tipo": "archivo-en-carpeta",
+      "puntos": 1,
+      "nombre": "El boceto está en la carpeta boceto",
+      "carpeta": "boceto",
+      "extensiones": [
+        ".jpg",
+        ".jpeg",
+        ".png",
+        ".webp",
+        ".svg",
+        ".pdf"
+      ]
+    },
+    {
+      "tipo": "commits",
+      "puntos": 1,
+      "nombre": "Hay al menos un commit tuyo",
+      "archivo": "BRIEF.md",
+      "minimo": 2
+    }
+  ]
+}
